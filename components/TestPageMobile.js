@@ -23,9 +23,8 @@ export default function TestPageMobile({ projects }) {
         const isExternalLink = project.externalUrl;
         // Utilise le lien externe si disponible, sinon le lien interne
         const linkHref = isExternalLink ? project.externalUrl : projectHref;
-        // Classes CSS pour le conteneur d'image
-        const imageContainerClasses =
-          'relative aspect-[3/4] w-full select-none overflow-hidden grayscale transition-all duration-300 group-hover:grayscale-0';
+        // Classes CSS pour le conteneur d'image (pas de grayscale sur mobile - images en couleur)
+        const imageContainerClasses = 'relative aspect-[3/4] w-full select-none overflow-hidden';
         // Classes CSS pour les médias (vidéo/image)
         const mediaClasses = 'absolute inset-0 h-full w-full select-none object-cover';
 
