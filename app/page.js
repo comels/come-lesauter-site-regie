@@ -12,10 +12,10 @@ export const metadata = {
     title: 'Côme Le Sauter - Régisseur Production',
     description:
       'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Découvrez mes réalisations pour des marques prestigieuses.',
-    url: 'https://votre-domaine.com',
+    url: 'https://comelesauter.vercel.app',
     images: [
       {
-        url: '/about-4.jpg',
+        url: 'https://comelesauter.vercel.app/about-4.jpg',
         width: 1200,
         height: 630,
         alt: 'Côme Le Sauter - Régisseur',

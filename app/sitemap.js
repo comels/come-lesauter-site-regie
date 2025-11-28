@@ -7,7 +7,7 @@ import { echosProjects } from '../data/echosProjects';
  * Inclut toutes les pages du site
  */
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://votre-domaine.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://comelesauter.vercel.app';
 
   // Pages statiques
   const routes = [

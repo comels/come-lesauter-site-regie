@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://votre-domaine.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://comelesauter.vercel.app';
   const projectUrl = `${baseUrl}/projects/${project.slug}`;
   const imageUrl = `${baseUrl}/projects/${project.slug}/${project.coverFile}`;
 

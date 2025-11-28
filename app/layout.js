@@ -18,14 +18,14 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://votre-domaine.com',
+    url: 'https://comelesauter.vercel.app',
     siteName: 'Côme Le Sauter - Régisseur',
     title: 'Côme Le Sauter - Régisseur Production',
     description:
       'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
     images: [
       {
-        url: '/about-4.jpg',
+        url: 'https://comelesauter.vercel.app/about-4.jpg',
         width: 1200,
         height: 630,
         alt: 'Côme Le Sauter',

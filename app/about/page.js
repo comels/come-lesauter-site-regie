@@ -8,7 +8,7 @@ export const metadata = {
     title: 'À propos - Côme Le Sauter',
     description:
       'Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
-    url: 'https://votre-domaine.com/about',
+    url: 'https://comelesauter.vercel.app/about',
     images: [
       {
         url: '/about-4.jpg',
@@ -24,9 +24,9 @@ export default function About() {
   return (
     <main className="relative min-h-screen px-0 lg:h-screen lg:overflow-hidden">
       <div className="relative flex min-h-screen w-full flex-col lg:block lg:h-full">
-        <div className="w-full px-6 pb-16 pt-20">
+        <div className="w-full px-6 pb-16 pt-32 md:pt-20">
           <p
-            className="relative z-10 text-justify text-4xl font-semibold uppercase sm:text-5xl lg:text-6xl"
+            className="relative z-10 text-justify text-3xl font-semibold uppercase sm:text-5xl lg:text-6xl"
             style={{ lineHeight: '1.3' }}
           >
             I’m Côme Le Sauter, a production manager working on commercial shoots, bringing

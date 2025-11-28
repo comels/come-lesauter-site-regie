@@ -2,6 +2,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap (à remplacer par votre domaine lors du déploiement)
-Sitemap: https://votre-domaine.com/sitemap.xml
+# Sitemap
+Sitemap: https://comelesauter.vercel.app/sitemap.xml
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 /**
  * Barre de navigation fixe en haut de la page
- * Affiche le nom "Côme Le Sauter" à gauche et les liens "About" et "Projects" à droite
+ * Affiche le nom "Côme Le Sauter" à gauche et le lien "About" à droite
  */
 export default function Navbar() {
   return (
@@ -16,13 +16,9 @@ export default function Navbar() {
           <span className="font-bold tracking-tighter">Le Sauter</span>
         </Link>
 
-        {/* Liens de navigation à droite */}
+        {/* Lien de navigation à droite */}
         <Link href="/about" className="ml-auto text-sm font-light uppercase hover:line-through">
           About
-        </Link>
-        <span className="text-sm font-light">-</span>
-        <Link href="/" className="text-sm font-light uppercase hover:line-through">
-          Projects
         </Link>
       </div>
     </nav>
