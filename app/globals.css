@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles globaux - tous les styles personnalisés inutilisés ont été retirés */
+
+/* Masquer complètement la scrollbar tout en gardant le défilement */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Pour Chrome, Safari, Edge */
+}
+
+/* Pour Firefox */
+.custom-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* Pour IE et Edge (ancienne version) */
+}
+
+/* Aligner les images en bas avec object-contain */
+.image-bottom-contain {
+  object-fit: contain;
+  object-position: bottom;
+}

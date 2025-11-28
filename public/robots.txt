@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap (à remplacer par votre domaine lors du déploiement)
+Sitemap: https://votre-domaine.com/sitemap.xml
+
