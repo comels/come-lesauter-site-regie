@@ -46,7 +46,7 @@ export default function ProjectGallery({
           {/* Nom de la production - format actuel (chaîne simple) */}
           {project.production && (
             <h2 className="mb-4 text-lg font-light">
-              Prod : {renderProduction(project.production, project.productionUrl)}
+              Prod : {renderProduction(project.production, project.productionUrl, true)}
             </h2>
           )}
           {/* Production Team - plusieurs personnes de la production, affichées sur une ligne avec virgules */}
@@ -73,12 +73,36 @@ export default function ProjectGallery({
               {project.crew.map((member, index) => (
                 <p key={index} className="text-lg font-light">
                   {member.role} :{' '}
-                  {member.url ? (
-                    <ExternalLink href={member.url} className="font-medium hover:line-through">
-                      {member.name}
-                    </ExternalLink>
+                  {Array.isArray(member.name) ? (
+                    // Si name est un tableau, affiche plusieurs personnes séparées par des virgules
+                    <>
+                      {member.name.map((person, personIndex) => (
+                        <span key={personIndex}>
+                          {person.url ? (
+                            <ExternalLink
+                              href={person.url}
+                              className="font-medium hover:line-through"
+                            >
+                              {person.name}
+                            </ExternalLink>
+                          ) : (
+                            person.name
+                          )}
+                          {personIndex < member.name.length - 1 && <span>, </span>}
+                        </span>
+                      ))}
+                    </>
                   ) : (
-                    member.name
+                    // Format actuel : name est une chaîne simple
+                    <>
+                      {member.url ? (
+                        <ExternalLink href={member.url} className="font-medium hover:line-through">
+                          {member.name}
+                        </ExternalLink>
+                      ) : (
+                        member.name
+                      )}
+                    </>
                   )}
                 </p>
               ))}

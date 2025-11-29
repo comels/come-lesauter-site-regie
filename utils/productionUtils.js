@@ -11,10 +11,13 @@ import ExternalLink from '../components/ExternalLink';
  *
  * @param {string|Array} production - La production (chaîne ou tableau)
  * @param {string} productionUrl - URL optionnelle (pour format chaîne simple)
+ * @param {boolean} useMediumFont - Si true, applique font-medium aux liens (pour pages de projets)
  * @returns {JSX.Element|null} Le JSX pour afficher la production
  */
-export function renderProduction(production, productionUrl = null) {
+export function renderProduction(production, productionUrl = null, useMediumFont = false) {
   if (!production) return null;
+
+  const linkClassName = useMediumFont ? 'font-medium hover:line-through' : 'hover:line-through';
 
   if (Array.isArray(production)) {
     // Format nouveau : tableau de personnes
@@ -23,7 +26,7 @@ export function renderProduction(production, productionUrl = null) {
         {production.map((person, index) => (
           <span key={index}>
             {person.url ? (
-              <ExternalLink href={person.url} className="font-medium hover:line-through">
+              <ExternalLink href={person.url} className={linkClassName}>
                 {person.name}
               </ExternalLink>
             ) : (
@@ -39,12 +42,7 @@ export function renderProduction(production, productionUrl = null) {
   // Format actuel : chaîne simple
   if (productionUrl) {
     return (
-      <a
-        href={productionUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-medium hover:line-through"
-      >
+      <a href={productionUrl} target="_blank" rel="noopener noreferrer" className={linkClassName}>
         {production}
       </a>
     );
@@ -52,4 +50,3 @@ export function renderProduction(production, productionUrl = null) {
 
   return <>{production}</>;
 }
-

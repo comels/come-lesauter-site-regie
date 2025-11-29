@@ -65,7 +65,7 @@ export default function TestPageMobile({ projects }) {
                 )}
                 {/* Nom de la production - peut être une chaîne ou un tableau de personnes */}
                 {project.production && (
-                  <p className="text-lg font-light leading-snug">
+                  <p className="text-lg font-thin leading-snug">
                     {renderProduction(project.production, project.productionUrl)}
                   </p>
                 )}

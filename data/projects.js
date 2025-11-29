@@ -19,6 +19,12 @@ export const projects = [
     clientUrl: '',
     production: 'FaireFaire',
     productionUrl: 'https://www.instagram.com/fairefairefr/',
+    productionTeam: [
+      { name: 'Laura Thomassaint', url: 'https://www.instagram.com/laura.thomassaint/' },
+      { name: 'Arsène Filliatreau', url: 'https://www.instagram.com/ar.sn/' },
+      { name: 'Hélène Birlouez', url: 'https://www.instagram.com/resspire/' },
+      { name: 'Léo Bernad', url: '' },
+    ],
     // Exemple pour Production Team (plusieurs personnes de la production) :
     // productionTeam: [
     //   { name: 'Personne 1', url: 'https://...' },
@@ -26,6 +32,11 @@ export const projects = [
     //   { name: 'Personne 3', url: '' }, // Pas de lien si URL vide
     // ],
     // Exemple d'informations crew (optionnel) - à compléter selon vos besoins
+    // Pour plusieurs personnes pour un même rôle, utilisez un tableau pour 'name' :
+    // crew: [
+    //   { role: 'Lumière', name: [{ name: 'Personne 1', url: 'https://...' }, { name: 'Personne 2', url: '' }] },
+    //   { role: 'Machinerie', name: [{ name: 'Personne 1', url: 'https://...' }, { name: 'Personne 2', url: 'https://...' }] },
+    // ]
     // crew: [
     //   { role: 'Photographe', name: 'Nom du photographe', url: 'https://...' },
     //   { role: 'Réalisateur', name: 'Nom du réalisateur', url: 'https://...' },
@@ -205,6 +216,61 @@ export const projects = [
     clientUrl: 'https://www.instagram.com/charlescadic/',
     production: 'Le Fresnoy',
     productionUrl: 'https://www.lefresnoy.net/',
+    productionTeam: [
+      { name: 'Arsène Filliatreau', url: 'https://www.instagram.com/ar.sn/' },
+      { name: 'Hélène Birlouez', url: 'https://www.instagram.com/resspire/' },
+      { name: 'Camille Broillard', url: 'https://www.instagram.com/brouillard_celeste/' },
+    ],
+    crew: [
+      {
+        role: 'Réalisateur',
+        name: 'Charles Cadic',
+        url: 'https://www.instagram.com/charlescadic/',
+      },
+      {
+        role: '1er AD',
+        name: 'Émilie Frey',
+        url: 'https://www.instagram.com/la__emi/',
+      },
+      { role: 'DOP', name: 'Nicolas Éveilleau', url: 'https://www.instagram.com/ev_nico/' },
+      { role: '1er AC', name: 'Oksana Luyssen', url: 'https://www.instagram.com/xiouchaa/' },
+      { role: '2nd AC', name: 'Frederick Mark', url: 'https://www.instagram.com/frederikmarks_/' },
+      {
+        role: 'Lumière',
+        name: 'Basile Baudelet',
+        url: 'https://www.instagram.com/basiledongsoo.baudelet/',
+      },
+      { role: 'Machinerie', name: 'Léo Lotz', url: 'https://www.instagram.com/leotz_/' },
+      {
+        role: 'Son',
+        name: [
+          { name: 'Victor Villafagne', url: 'https://www.instagram.com/victorvillafagne/' },
+          { name: 'Fabio Colaço', url: '' },
+        ],
+      },
+      {
+        role: 'Décoration',
+        name: [
+          { name: 'Bankal & Decker', url: 'https://www.instagram.com/bankal_et_decker/' },
+          { name: 'Nils Brunel', url: 'https://www.instagram.com/nilsbrunel/' },
+          { name: 'Erwan Faucon', url: 'https://www.instagram.com/lechat_kqt/' },
+          { name: 'Léon Orry', url: 'https://www.instagram.com/leonorrydiquero/' },
+        ],
+      },
+      {
+        role: 'HMC',
+        name: [
+          { name: 'Estelle Rancurel', url: 'https://www.instagram.com/estellerancurel/' },
+          { name: 'Teddy Czopp', url: 'https://www.instagram.com/teddyczopp/' },
+          { name: 'Céline Exbrayat', url: 'https://www.instagram.com/celineexbrayat/' },
+        ],
+      },
+      {
+        role: 'Catering',
+        name: 'Laetitia Ropion',
+        url: 'https://www.instagram.com/laetitiarop/',
+      },
+    ],
     coverType: 'image',
     coverFile: 'cover.jpg',
     images: [],

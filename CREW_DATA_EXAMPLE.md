@@ -6,6 +6,8 @@ Pour chaque projet dans `data/projects.js`, vous pouvez ajouter un tableau `crew
 
 ## Format
 
+### Format simple (une personne par rôle)
+
 ```javascript
 crew: [
   { role: 'Photographe', name: 'Nom du photographe', url: 'https://site-du-photographe.com' },
@@ -14,6 +16,32 @@ crew: [
   { role: 'Catering', name: 'Nom du catering', url: '' },
   { role: 'Styliste', name: 'Nom du styliste', url: 'https://instagram.com/styliste' },
   // ... etc
+]
+```
+
+### Format avec plusieurs personnes (pour un même rôle)
+
+Pour les rôles où vous avez plusieurs personnes (lumière, machinerie, décoration, HMC, etc.), utilisez un tableau pour `name` :
+
+```javascript
+crew: [
+  { 
+    role: 'Lumière', 
+    name: [
+      { name: 'Personne 1', url: 'https://instagram.com/personne1' },
+      { name: 'Personne 2', url: 'https://site.com/personne2' },
+      { name: 'Personne 3', url: '' } // Pas de lien si URL vide
+    ] 
+  },
+  { 
+    role: 'Machinerie', 
+    name: [
+      { name: 'Personne 1', url: 'https://...' },
+      { name: 'Personne 2', url: '' }
+    ] 
+  },
+  // Format simple pour les autres rôles
+  { role: 'Réalisateur', name: 'Nom du réalisateur', url: 'https://...' },
 ]
 ```
 
@@ -79,6 +107,44 @@ crew: [
 }
 ```
 
+## Exemple 4 : Projet avec plusieurs personnes pour un même rôle
+
+```javascript
+{
+  slug: 'exemple-projet',
+  title: 'Exemple Projet',
+  description: 'Description',
+  client: 'Client',
+  production: 'Production',
+  coverType: 'image',
+  coverFile: 'cover.jpg',
+  crew: [
+    { role: 'Réalisateur', name: 'Jean Dupont', url: 'https://...' },
+    { 
+      role: 'Lumière', 
+      name: [
+        { name: 'Personne 1', url: 'https://instagram.com/personne1' },
+        { name: 'Personne 2', url: 'https://site.com/personne2' }
+      ] 
+    },
+    { 
+      role: 'Machinerie', 
+      name: [
+        { name: 'Personne 1', url: 'https://...' },
+        { name: 'Personne 2', url: '' }
+      ] 
+    },
+    { 
+      role: 'Décoration', 
+      name: [
+        { name: 'Personne 1', url: 'https://...' }
+      ] 
+    },
+  ],
+  images: [...],
+}
+```
+
 ## Rôles courants
 
 Vous pouvez utiliser n'importe quel nom de rôle, voici des exemples :
@@ -94,6 +160,10 @@ Vous pouvez utiliser n'importe quel nom de rôle, voici des exemples :
 - `Assistant réalisateur` / `1er assistant`
 - `Scripte`
 - `Chef opérateur`
+- `Lumière` (souvent plusieurs personnes)
+- `Machinerie` (souvent plusieurs personnes)
+- `Décoration` (souvent plusieurs personnes)
+- `HMC` (Habillage, Maquillage, Coiffure - souvent plusieurs personnes)
 
 ## Où ajouter ces informations ?
 
@@ -114,4 +184,12 @@ Si vous ne voulez pas de lien, laissez `url: ''` ou ne mettez pas de `url`.
 ## Affichage
 
 Les informations apparaîtront automatiquement sur la page du projet, en dessous de "Client" et "Production", dans le même style.
+
+- **Format simple** : Une personne par rôle, affichée sur une ligne
+  - Exemple : `Lumière : Personne 1`
+
+- **Format multiple** : Plusieurs personnes pour un même rôle, séparées par des virgules
+  - Exemple : `Lumière : Personne 1, Personne 2, Personne 3`
+
+Les noms seront cliquables si une URL est fournie.
 
