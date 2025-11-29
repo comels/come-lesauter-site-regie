@@ -12,12 +12,12 @@ export default function Navbar() {
       <div className="flex items-center gap-3 px-6 py-4">
         {/* Logo / Nom du site - cliquable, mène à la page d'accueil */}
         <Link href="/" className="text-2xl uppercase transition-colors hover:line-through">
-          <span className="font-light tracking-tighter">Côme </span>
+          <span className="font-thin tracking-tighter">Côme </span>
           <span className="font-bold tracking-tighter">Le Sauter</span>
         </Link>
 
         {/* Lien de navigation à droite */}
-        <Link href="/about" className="ml-auto text-sm font-light uppercase hover:line-through">
+        <Link href="/about" className="ml-auto text-sm font-thin uppercase hover:line-through">
           About
         </Link>
       </div>

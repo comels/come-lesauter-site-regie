@@ -1,7 +1,7 @@
 export const echosProjects = [
   {
-    slug: 'les-echos-trouville',
-    title: 'Les Echos Trouville',
+    slug: 'les-echos-week-end-422',
+    title: 'Les Échos Week-end n°422',
     description: 'Les Échos Week-end n°422',
     client: 'Les Échos',
     clientUrl: '',
@@ -27,8 +27,8 @@ export const echosProjects = [
     ],
   },
   {
-    slug: 'les-echos-meaux',
-    title: 'Les Echos Meaux',
+    slug: 'les-echos-serie-limitee-243',
+    title: 'Les Échos Série Limitée n°243',
     description: 'Les Échos Série Limitée n°243',
     client: 'Les Échos',
     clientUrl: '',
@@ -39,13 +39,65 @@ export const echosProjects = [
     images: ['photo-1.jpg', 'photo-2.jpg'],
   },
   {
-    slug: 'les-echos-91',
-    title: 'Les Echos 91',
+    slug: 'les-echos-week-end-438',
+    title: 'Les Échos Week-end n°438',
     description: 'Les Échos Week-end n°438',
     client: 'Les Échos',
     clientUrl: '',
     production: 'Diémé Agency',
     productionUrl: 'https://www.instagram.com/diemeagency/',
+    productionTeam: [
+      {
+        name: 'Hélène Dimé',
+        url: 'https://www.instagram.com/diemeagency/',
+      },
+      {
+        name: 'Charles Créhange',
+        url: 'https://www.instagram.com/charles_crehange/',
+      },
+    ],
+    crew: [
+      {
+        role: 'Art Director',
+        name: 'Sylvain Vitrat',
+        url: 'https://www.instagram.com/studiosylvainvitrat/',
+      },
+      {
+        role: 'Photographe',
+        name: 'Valentin Hennequin',
+        url: 'https://www.instagram.com/valentin_hennequin/',
+      },
+      {
+        role: 'Assistant photographe',
+        name: 'Pietro Lazzaris',
+        url: 'https://www.instagram.com/lazzarispietro/',
+      },
+      {
+        role: 'Styliste',
+        name: 'Laetitia Paul',
+        url: 'https://www.instagram.com/laetipaul/',
+      },
+      {
+        role: 'Assistant styliste',
+        name: 'Amandine Guinand',
+        url: 'https://www.instagram.com/amandineguinand/',
+      },
+      {
+        role: 'Groomer',
+        name: 'Joel Phillips',
+        url: 'https://www.instagram.com/joelphillipshair/',
+      },
+      {
+        role: 'Model',
+        name: 'Jeremy Young',
+        url: 'https://www.instagram.com/jeremyoung/',
+      },
+      {
+        role: 'Catering',
+        name: 'Le Catering Parisien',
+        url: 'https://www.instagram.com/lecateringparisien/',
+      },
+    ],
     coverType: 'image',
     coverFile: 'cover.jpg',
     images: [

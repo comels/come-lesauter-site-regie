@@ -1,5 +1,6 @@
 import { echosProjects } from '../../../data/echosProjects';
 import ProjectCard from '../../../components/ProjectCard';
+import { renderProduction } from '../../../utils/productionUtils';
 
 export default function EchosPage() {
   return (
@@ -8,19 +9,7 @@ export default function EchosPage() {
         <h1 className="text-lg font-semibold uppercase tracking-tight">Les Échos</h1>
         {echosProjects[0]?.production && (
           <h2 className="mb-4 text-lg font-light">
-            Prod :{' '}
-            {echosProjects[0].productionUrl ? (
-              <a
-                href={echosProjects[0].productionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:line-through"
-              >
-                {echosProjects[0].production}
-              </a>
-            ) : (
-              echosProjects[0].production
-            )}
+            Prod : {renderProduction(echosProjects[0].production, echosProjects[0].productionUrl)}
           </h2>
         )}
       </div>

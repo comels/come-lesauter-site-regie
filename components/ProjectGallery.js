@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import VideoWithSound from './VideoWithSound';
+import ExternalLink from './ExternalLink';
+import { renderProduction } from '../utils/productionUtils';
 
 /**
  * Composant réutilisable pour afficher une galerie de projets
@@ -41,23 +43,46 @@ export default function ProjectGallery({
               )}
             </h1>
           )}
-          {/* Nom de la production - cliquable si productionUrl existe */}
+          {/* Nom de la production - format actuel (chaîne simple) */}
           {project.production && (
             <h2 className="mb-4 text-lg font-light">
-              Prod :{' '}
-              {project.productionUrl ? (
-                <a
-                  href={project.productionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:line-through"
-                >
-                  {project.production}
-                </a>
-              ) : (
-                project.production
-              )}
+              Prod : {renderProduction(project.production, project.productionUrl)}
             </h2>
+          )}
+          {/* Production Team - plusieurs personnes de la production, affichées sur une ligne avec virgules */}
+          {project.productionTeam && project.productionTeam.length > 0 && (
+            <p className="mb-4 text-lg font-light">
+              Production Team :{' '}
+              {project.productionTeam.map((person, index) => (
+                <span key={index}>
+                  {person.url ? (
+                    <ExternalLink href={person.url} className="font-medium hover:line-through">
+                      {person.name}
+                    </ExternalLink>
+                  ) : (
+                    person.name
+                  )}
+                  {index < project.productionTeam.length - 1 && <span>, </span>}
+                </span>
+              ))}
+            </p>
+          )}
+          {/* Informations additionnelles (crew) - photographe, réalisateur, set designer, etc. */}
+          {project.crew && project.crew.length > 0 && (
+            <div className="mb-4 space-y-1">
+              {project.crew.map((member, index) => (
+                <p key={index} className="text-lg font-light">
+                  {member.role} :{' '}
+                  {member.url ? (
+                    <ExternalLink href={member.url} className="font-medium hover:line-through">
+                      {member.name}
+                    </ExternalLink>
+                  ) : (
+                    member.name
+                  )}
+                </p>
+              ))}
+            </div>
           )}
         </div>
       )}

@@ -1,6 +1,7 @@
 'use client';
 
 import ExternalLink from './ExternalLink';
+import { renderProduction } from '../utils/productionUtils';
 
 /**
  * Composant pour afficher les informations client/production au survol d'une image
@@ -29,16 +30,10 @@ export default function ProjectInfoOverlay({ project }) {
           )}
         </p>
       )}
-      {/* Nom de la production - cliquable si productionUrl existe */}
+      {/* Nom de la production - peut être une chaîne ou un tableau de personnes */}
       {project.production && (
         <p className="text-lg font-light leading-snug">
-          {project.productionUrl ? (
-            <ExternalLink href={project.productionUrl} className="hover:line-through">
-              {project.production}
-            </ExternalLink>
-          ) : (
-            project.production
-          )}
+          {renderProduction(project.production, project.productionUrl)}
         </p>
       )}
     </div>

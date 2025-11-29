@@ -30,15 +30,15 @@ export const metadata = {
  */
 const TEXT_CONTENT = (
   <>
-    <span className="font-semibold">
+    <span className="font-bold">
       Something
       <br />
       <span className="pl-8">you'll want on</span>
       <br />
       <span className="pl-2">every </span>
     </span>
-    <span className="font-light italic">
-      production<span className="font-semibold">.</span>
+    <span className="font-thin italic">
+      production<span className="font-bold">.</span>
     </span>
   </>
 );

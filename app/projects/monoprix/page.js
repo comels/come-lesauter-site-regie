@@ -1,5 +1,6 @@
 import { monoprixProjects } from '../../../data/monoprixProjects';
 import ProjectCard from '../../../components/ProjectCard';
+import { renderProduction } from '../../../utils/productionUtils';
 
 export default function MonoprixPage() {
   return (
@@ -8,19 +9,7 @@ export default function MonoprixPage() {
         <h1 className="text-lg font-semibold uppercase tracking-tight">Monoprix</h1>
         {monoprixProjects[0]?.production && (
           <h2 className="mb-4 text-lg font-light">
-            Prod :{' '}
-            {monoprixProjects[0].productionUrl ? (
-              <a
-                href={monoprixProjects[0].productionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:line-through"
-              >
-                {monoprixProjects[0].production}
-              </a>
-            ) : (
-              monoprixProjects[0].production
-            )}
+            Prod : {renderProduction(monoprixProjects[0].production, monoprixProjects[0].productionUrl)}
           </h2>
         )}
       </div>

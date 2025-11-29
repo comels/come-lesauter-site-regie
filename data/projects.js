@@ -19,6 +19,18 @@ export const projects = [
     clientUrl: '',
     production: 'FaireFaire',
     productionUrl: 'https://www.instagram.com/fairefairefr/',
+    // Exemple pour Production Team (plusieurs personnes de la production) :
+    // productionTeam: [
+    //   { name: 'Personne 1', url: 'https://...' },
+    //   { name: 'Personne 2', url: 'https://...' },
+    //   { name: 'Personne 3', url: '' }, // Pas de lien si URL vide
+    // ],
+    // Exemple d'informations crew (optionnel) - à compléter selon vos besoins
+    // crew: [
+    //   { role: 'Photographe', name: 'Nom du photographe', url: 'https://...' },
+    //   { role: 'Réalisateur', name: 'Nom du réalisateur', url: 'https://...' },
+    //   { role: 'Set Designer', name: 'Nom du set designer', url: '' },
+    // ],
     coverType: 'image',
     coverFile: 'cover.jpg',
     images: [
@@ -70,6 +82,33 @@ export const projects = [
     clientUrl: '',
     production: 'Ref Productions',
     productionUrl: 'https://www.instagram.com/ref_prod/',
+    crew: [
+      {
+        role: 'Réalisateur',
+        name: 'Boramy Viguier',
+        url: 'https://www.instagram.com/boramyviguier/',
+      },
+      {
+        role: 'DOP',
+        name: 'Maxime Berger',
+        url: 'https://maximeberger.com/',
+      },
+      {
+        role: '1er AC',
+        name: 'Martin Grillet',
+        url: 'https://www.instagram.com/martin.grillet/',
+      },
+      {
+        role: 'Photographe',
+        name: 'Marco Pionato',
+        url: 'https://www.instagram.com/marcopionato/',
+      },
+      {
+        role: 'Talent',
+        name: 'Ousmane Dembélé',
+        url: 'https://www.instagram.com/o.dembele7/',
+      },
+    ],
     coverType: 'image',
     coverFile: 'cover.jpg',
     images: ['photo-1.jpg', 'photo-2.jpg', 'photo-3.jpg', 'photo-4.jpg', 'video.mp4'],
@@ -143,7 +182,7 @@ export const projects = [
     production: 'Diémé Agency',
     productionUrl: 'https://www.instagram.com/diemeagency/',
     coverType: 'image',
-    coverFile: 'les-echos-trouville/cover.jpg',
+    coverFile: 'les-echos-week-end-422/cover.jpg',
     images: [],
   },
   {
@@ -164,8 +203,8 @@ export const projects = [
     description: '',
     client: 'Charles Cadic',
     clientUrl: 'https://www.instagram.com/charlescadic/',
-    production: '',
-    productionUrl: '',
+    production: 'Le Fresnoy',
+    productionUrl: 'https://www.lefresnoy.net/',
     coverType: 'image',
     coverFile: 'cover.jpg',
     images: [],
