@@ -1,6 +1,6 @@
 import { projects } from '../data/projects';
 import Link from 'next/link';
-import { getProjectImagePath, getProjectHref } from '../utils/imageUtils';
+import { getProjectImagePath, getProjectHref, isVideoFile } from '../utils/imageUtils';
 import TestPageMobile from '../components/TestPageMobile';
 import ProjectInfoOverlay from '../components/ProjectInfoOverlay';
 
@@ -91,7 +91,7 @@ export default function Home() {
   /**
    * Calcule le nombre d'images/vidéos dans un projet
    * Pour Monoprix et Echos, retourne le nombre de sous-projets
-   * Pour les autres, retourne 1 (cover) + le nombre d'images supplémentaires
+   * Pour les autres, retourne le nombre total d'images (la couverture est déjà incluse dans le tableau images)
    */
   const getCount = (project) => {
     if (project.slug === 'monoprix') {
@@ -100,8 +100,8 @@ export default function Home() {
     if (project.slug === 'echos') {
       return 3; // Nombre de sous-projets Echos
     }
-    // Pour les autres projets : 1 (cover) + nombre d'images supplémentaires
-    return 1 + (project.images ? project.images.length : 0);
+    // Pour les autres projets : le nombre total d'images (couverture incluse dans images)
+    return project.images ? project.images.length : 0;
   };
 
   return (
@@ -145,24 +145,26 @@ export default function Home() {
               const commonImageClasses =
                 'h-auto w-auto max-w-xs select-none object-contain object-bottom grayscale transition-all duration-300 group-hover/image:grayscale-0';
 
+              // Détermine si c'est une vidéo en regardant l'extension ou coverType (rétrocompatibilité)
+              const isVideo = project.coverType === 'video' || isVideoFile(coverPath);
+
               // Contenu de l'image (vidéo ou image)
-              const imageContent =
-                project.coverType === 'video' ? (
-                  <video
-                    src={coverPath}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={`${maxHeightClass} ${commonImageClasses}`}
-                  />
-                ) : (
-                  <img
-                    src={coverPath}
-                    alt={project.title}
-                    className={`${maxHeightClass} ${commonImageClasses}`}
-                  />
-                );
+              const imageContent = isVideo ? (
+                <video
+                  src={coverPath}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className={`${maxHeightClass} ${commonImageClasses}`}
+                />
+              ) : (
+                <img
+                  src={coverPath}
+                  alt={project.title}
+                  className={`${maxHeightClass} ${commonImageClasses}`}
+                />
+              );
 
               return (
                 <div

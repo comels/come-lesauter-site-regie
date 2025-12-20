@@ -1,6 +1,7 @@
 import { monoprixProjects } from '../../../data/monoprixProjects';
 import ProjectCard from '../../../components/ProjectCard';
 import { renderProduction } from '../../../utils/productionUtils';
+import { getCoverFileName } from '../../../utils/imageUtils';
 
 export default function MonoprixPage() {
   return (
@@ -15,7 +16,8 @@ export default function MonoprixPage() {
       </div>
       <div className="grid grid-cols-1 items-stretch gap-x-12 gap-y-4 md:grid-cols-2 md:gap-x-8 lg:grid-cols-3 xl:grid-cols-4">
         {monoprixProjects.map((project) => {
-          const coverPath = `/projects/monoprix/${project.slug}/${project.coverFile}`;
+          const coverFileName = getCoverFileName(project);
+          const coverPath = coverFileName ? `/projects/monoprix/${project.slug}/${coverFileName}` : '';
           const projectHref = `/projects/monoprix/${project.slug}`;
           const hasMultipleImages = project.images && project.images.length > 0;
 

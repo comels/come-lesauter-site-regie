@@ -1,6 +1,7 @@
 import { projects } from '../../../data/projects';
 import { notFound } from 'next/navigation';
 import ProjectGallery from '../../../components/ProjectGallery';
+import { getCoverFileName } from '../../../utils/imageUtils';
 
 export async function generateStaticParams() {
   return projects
@@ -19,7 +20,8 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://comelesauter.vercel.app';
   const projectUrl = `${baseUrl}/projects/${project.slug}`;
-  const imageUrl = `${baseUrl}/projects/${project.slug}/${project.coverFile}`;
+  const coverFileName = getCoverFileName(project);
+  const imageUrl = coverFileName ? `${baseUrl}/projects/${project.slug}/${coverFileName}` : '';
 
   return {
     title: `${project.title} - ${project.client || 'Projet'} | Côme Le Sauter`,

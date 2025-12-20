@@ -7,8 +7,58 @@ export const echosProjects = [
     clientUrl: '',
     production: 'Diémé Agency',
     productionUrl: 'https://www.instagram.com/diemeagency/',
-    coverType: 'image',
-    coverFile: 'cover.jpg',
+    productionTeam: [
+      { name: 'Hélène Dimé', url: 'https://www.instagram.com/helenedime/' },
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+      {
+        name: 'Benjamin Vasseur Guerrero',
+        url: 'https://www.instagram.com/benjaminvasseurguerrero/',
+      },
+    ],
+
+    crew: [
+      {
+        role: 'Photographe',
+        name: 'Paulina Wesolowska',
+        url: 'https://www.instagram.com/wesolowska_paulina/',
+      },
+      {
+        role: 'Assistant Photographe',
+        name: 'Enea Arienti',
+        url: 'https://www.instagram.com/enea.arienti/',
+      },
+      {
+        role: 'Styliste',
+        name: 'Aline de Beauclaire',
+        url: 'https://www.instagram.com/alinedebeauclaire/',
+      },
+      {
+        role: 'Assistant Styliste',
+        name: 'Tatiana Vereshchagina',
+        url: 'https://www.instagram.com/tativer/',
+      },
+      {
+        role: 'Assistant Styliste',
+        name: 'Bohdan Puzyk',
+        url: 'https://www.instagram.com/bpuzik/',
+      },
+      {
+        role: 'Hair Stylist',
+        name: 'Anna Sofie Begtrup',
+        url: 'https://www.instagram.com/annesofie.begtrup/',
+      },
+      {
+        role: 'Make-up',
+        name: 'Lili Choi',
+        url: 'https://www.instagram.com/lilichoimakeup/',
+      },
+      {
+        role: 'Talent',
+        name: 'Tida Rosvall',
+        url: 'https://www.instagram.com/TidaRosvall/',
+      },
+    ],
+    coverImage: 'photo-1.jpg',
     images: [
       'photo-1.jpg',
       'photo-2.jpg',
@@ -24,6 +74,7 @@ export const echosProjects = [
       'photo-12.jpg',
       'photo-13.jpg',
       'photo-14.jpg',
+      'photo-15.jpg',
     ],
   },
   {
@@ -34,9 +85,61 @@ export const echosProjects = [
     clientUrl: '',
     production: 'Diémé Agency',
     productionUrl: 'https://www.instagram.com/diemeagency/',
-    coverType: 'image',
-    coverFile: 'cover.jpg',
-    images: ['photo-1.jpg', 'photo-2.jpg'],
+    productionTeam: [
+      { name: 'Hélène Dimé', url: 'https://www.instagram.com/helenedime/' },
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+      { name: 'Charles Crehange', url: 'https://www.instagram.com/charles_crehange/' },
+    ],
+    crew: [
+      {
+        role: 'Directeur artistique',
+        name: 'Giorgio Martinoli',
+        url: 'https://www.instagram.com/giorgiomartinoli/',
+      },
+      {
+        role: 'Photographe',
+        name: 'Valentin Hennequin',
+        url: 'https://www.instagram.com/valentin_hennequin/',
+      },
+      {
+        role: 'Assistant photographe',
+        name: 'Giovanni Soffietti',
+        url: 'https://www.instagram.com/gionniglamour/',
+      },
+      {
+        role: 'Styliste',
+        name: 'Marine Chaumien',
+        url: 'https://www.instagram.com/marinechaumien/',
+      },
+      {
+        role: 'Assistante styliste',
+        name: 'Ambrine Morouani',
+        url: 'https://www.instagram.com/ambrinemm/',
+      },
+      {
+        role: 'Groomer',
+        name: 'Sébastien Le Corroller',
+        url: '',
+      },
+      {
+        role: 'Set designer',
+        name: 'Aymeric Arnould',
+        url: 'https://www.instagram.com/studioaymericarnould/',
+      },
+      {
+        role: 'Talent',
+        name: 'Su Hang',
+        url: 'https://www.instagram.com/suhang994/',
+      },
+      {
+        role: 'Catering',
+        name: 'Catering Parisien',
+        url: 'https://www.instagram.com/lecateringparisien/',
+      },
+    ],
+
+    coverImage: 'photo-1.jpg',
+    images: ['photo-1.jpg', 'photo-2.jpg', 'photo-3.jpg'],
   },
   {
     slug: 'les-echos-week-end-438',
@@ -98,8 +201,7 @@ export const echosProjects = [
         url: 'https://www.instagram.com/lecateringparisien/',
       },
     ],
-    coverType: 'image',
-    coverFile: 'cover.jpg',
+    coverImage: 'photo-1.jpg',
     images: [
       'photo-1.jpg',
       'photo-2.jpg',
@@ -115,6 +217,7 @@ export const echosProjects = [
       'photo-12.jpg',
       'photo-13.jpg',
       'photo-14.jpg',
+      'photo-15.jpg',
     ],
   },
 ];

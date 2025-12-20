@@ -18,8 +18,32 @@ export default function ProjectGallery({
   gridCols = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
   showHeader = false,
 }) {
-  // Construit le chemin complet de l'image de couverture
-  const coverPath = `${basePath}/${project.coverFile}`;
+  // Détermine le nom de fichier de la couverture (nouveau système avec coverImage ou ancien avec coverFile)
+  const getCoverFileName = () => {
+    if (project.coverImage) {
+      return project.coverImage; // Nouveau système
+    }
+    if (project.coverFile) {
+      return project.coverFile; // Ancien système (rétrocompatibilité)
+    }
+    // Si aucun n'est défini et qu'il y a des images, utilise la première
+    if (project.images && project.images.length > 0) {
+      return project.images[0];
+    }
+    return null;
+  };
+
+  const coverFileName = getCoverFileName();
+  const coverPath = coverFileName ? `${basePath}/${coverFileName}` : null;
+
+  // Filtre les images pour exclure la couverture
+  const otherImages = project.images?.filter((img) => img !== coverFileName) || [];
+
+  // Vérifie si la couverture est une vidéo
+  const isCoverVideo =
+    coverFileName && /\.(mp4|mov|webm|ogg)$/i.test(coverFileName)
+      ? true
+      : project.coverType === 'video';
 
   return (
     <>
@@ -28,7 +52,7 @@ export default function ProjectGallery({
         <div className="mb-12">
           {/* Nom du client - cliquable si clientUrl existe */}
           {project.client && (
-            <h1 className="text-lg font-semibold uppercase tracking-tight">
+            <h1 className="text-lg font-semibold uppercase">
               {project.clientUrl ? (
                 <a
                   href={project.clientUrl}
@@ -45,10 +69,12 @@ export default function ProjectGallery({
           )}
           {/* Nom de la production - format actuel (chaîne simple) */}
           {project.production && (
-            <h2 className="mb-4 text-lg font-light">
+            <h2 className="text-lg font-light">
               Prod : {renderProduction(project.production, project.productionUrl, true)}
             </h2>
           )}
+          {/* Date du projet */}
+          {project.date && <p className="mb-4 text-lg font-light">Date : {project.date}</p>}
           {/* Production Team - plusieurs personnes de la production, affichées sur une ligne avec virgules */}
           {project.productionTeam && project.productionTeam.length > 0 && (
             <p className="mb-4 text-lg font-light">
@@ -114,27 +140,29 @@ export default function ProjectGallery({
       {/* Grille contenant toutes les images du projet */}
       <div className={`grid ${gridCols} gap-8 md:gap-4`}>
         {/* Image de couverture (affichée en premier) */}
-        <div className="relative aspect-[3/4] w-full select-none overflow-hidden md:aspect-[4/5]">
-          {project.coverType === 'video' ? (
-            // Si c'est une vidéo, utilise le composant VideoWithSound
-            <VideoWithSound
-              src={coverPath}
-              className="absolute inset-0 h-full w-full select-none object-cover"
-            />
-          ) : (
-            // Si c'est une image, utilise le composant Image de Next.js
-            <Image
-              src={coverPath}
-              alt={project.title}
-              fill
-              className="select-none object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-          )}
-        </div>
+        {coverPath && (
+          <div className="relative aspect-[3/4] w-full select-none overflow-hidden md:aspect-[4/5]">
+            {isCoverVideo ? (
+              // Si c'est une vidéo, utilise le composant VideoWithSound
+              <VideoWithSound
+                src={coverPath}
+                className="absolute inset-0 h-full w-full select-none object-cover"
+              />
+            ) : (
+              // Si c'est une image, utilise le composant Image de Next.js
+              <Image
+                src={coverPath}
+                alt={project.title}
+                fill
+                className="select-none object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            )}
+          </div>
+        )}
 
-        {/* Boucle sur toutes les autres images du projet */}
-        {project.images?.map((imageFile, index) => {
+        {/* Boucle sur toutes les autres images du projet (sauf la couverture) */}
+        {otherImages.map((imageFile, index) => {
           // Construit le chemin complet de chaque image
           const imagePath = `${basePath}/${imageFile}`;
           // Vérifie si le fichier est une vidéo en regardant l'extension

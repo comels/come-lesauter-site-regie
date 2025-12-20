@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import VideoWithSound from './VideoWithSound';
+import { isVideoFile } from '../utils/imageUtils';
 
 /**
  * Composant pour afficher une carte de projet
@@ -33,6 +34,9 @@ export default function ProjectCard({
     ? ''
     : `grayscale transition-all duration-300 ${hasMultipleImages ? 'group-hover:grayscale-0' : 'hover:grayscale-0'}`;
 
+  // Détermine si c'est une vidéo en regardant l'extension ou coverType (rétrocompatibilité)
+  const isVideo = project.coverType === 'video' || isVideoFile(coverPath);
+
   // Contenu de l'image (vidéo ou image statique)
   const imageContent = (
     <div
@@ -40,7 +44,7 @@ export default function ProjectCard({
         hasMultipleImages ? 'group' : ''
       }`}
     >
-      {project.coverType === 'video' ? (
+      {isVideo ? (
         // Affiche une vidéo avec son
         <VideoWithSound
           src={coverPath}
@@ -68,7 +72,7 @@ export default function ProjectCard({
     <div className={containerClasses}>
       {/* Description du projet (affichée si showDescription est true) */}
       {showDescription && project.description && (
-        <div className="mb-1 font-thin">{project.description}</div>
+        <div className="mb-2 font-semibold uppercase">{project.description}</div>
       )}
       {/* Compteur d'images (affiché si showCount est true) */}
       {showCount && count !== null && (

@@ -27,11 +27,11 @@ export default function About() {
       <div className="relative flex min-h-screen w-full flex-col lg:block lg:h-full">
         <div className="w-full px-6 pb-16 pt-20">
           <p
-            className="relative z-10 text-justify text-3xl font-semibold uppercase sm:text-5xl lg:text-6xl"
+            className="relative z-10 text-justify text-3xl font-semibold uppercase sm:text-5xl lg:text-[65px]"
             style={{ lineHeight: '1.3' }}
           >
-            I’m Côme Le Sauter, a production manager working on commercial shoots, bringing
-            expertise in location scouting, logistics, catering, and efficient on-set operations.
+            I’m a production manager working on commercial shoots, bringing expertise in location
+            scouting, logistics, catering, and efficient on-set operations.
           </p>
         </div>
 

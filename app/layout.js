@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700'],
   variable: '--font-inter',
 });
 
@@ -12,7 +12,15 @@ export const metadata = {
   title: 'Côme Le Sauter - Régisseur Production',
   description:
     'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
-  keywords: ['régisseur', 'production', 'audiovisuel', 'commercial', 'cinéma', 'tournage', 'logistique'],
+  keywords: [
+    'régisseur',
+    'production',
+    'audiovisuel',
+    'commercial',
+    'cinéma',
+    'tournage',
+    'logistique',
+  ],
   authors: [{ name: 'Côme Le Sauter' }],
   creator: 'Côme Le Sauter',
   openGraph: {
@@ -56,9 +64,7 @@ export const metadata = {
       { url: '/favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/favicon_io/favicon.ico', sizes: 'any' },
     ],
-    apple: [
-      { url: '/favicon_io/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/favicon_io/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
     other: [
       {
         rel: 'android-chrome-192x192',
@@ -76,11 +82,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={inter.variable}>
-      <body className="bg-stone-100 min-h-screen font-sans text-gray-900">
+      <body className="min-h-screen bg-stone-100 font-sans text-gray-900">
         <Navbar />
         {children}
       </body>
     </html>
   );
 }
-
