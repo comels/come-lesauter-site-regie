@@ -1,4 +1,5 @@
 export const projects = [
+  // Projet FFR
   {
     slug: 'FFR',
     title: 'FFR',
@@ -36,13 +37,19 @@ export const projects = [
       { role: 'Styliste', name: 'Aymeric Lafond', url: '' },
 
       // TALENTS
-      { role: 'Talent', name: 'Thierry Gary', url: 'https://www.instagram.com/thierygary/' },
-      { role: 'Talent', name: 'Vanessa Paric', url: 'https://www.instagram.com/vanessa_paric/' },
+      {
+        role: 'Talents',
+        name: [
+          { name: 'Thierry Gary', url: 'https://www.instagram.com/thierygary/' },
+          { name: 'Vanessa Paric', url: 'https://www.instagram.com/vanessa_paric/' },
+        ],
+      },
     ],
 
     coverImage: 'video-1.mp4',
     images: ['video-1.mp4'],
   },
+  // Projet Aigle
   {
     slug: 'aigle',
     title: 'Aigle',
@@ -87,6 +94,7 @@ export const projects = [
       'photo-7.jpg',
     ],
   },
+  // Projet Breitling
   {
     slug: 'breitling',
     title: 'Breitling',
@@ -138,7 +146,7 @@ export const projects = [
 
       // STYLISME / GLAM
       {
-        role: 'Make up',
+        role: 'Makeup',
         name: 'Karla Garza',
         url: 'https://www.instagram.com/makeupbykarlagarza/',
       },
@@ -154,6 +162,7 @@ export const projects = [
       'video.mp4',
     ],
   },
+  // Projet Courir Ruban
   {
     slug: 'courir-ruban',
     title: 'Courir Ruban',
@@ -186,18 +195,19 @@ export const projects = [
         name: 'Andrés Gomez Orellana',
         url: 'https://www.instagram.com/andresgomezorellana/',
       },
-      { role: 'Assistant caméra', name: 'Pierre-Valentin Ferdani', url: '' },
+      { role: '1er AC', name: 'Pierre-Valentin Ferdani', url: '' },
 
+      // ÉLECTRICITÉ
       {
-        role: 'Cheffe électro',
-        name: 'Valentine Lacour',
-        url: 'https://www.instagram.com/queen_delacour/',
+        role: 'Électro',
+        name: [
+          { name: 'Valentine Lacour', url: 'https://www.instagram.com/queen_delacour/' },
+          { name: 'Eric Ancel', url: '' },
+        ],
       },
-      { role: 'Électricien', name: 'Eric Ancel', url: '' },
-
       // SON
       {
-        role: 'Ingénieur du son',
+        role: 'Son',
         name: 'Yoshio Masuda',
         url: 'https://www.instagram.com/yoshiomasuda/',
       },
@@ -207,34 +217,35 @@ export const projects = [
 
       // SET DESIGN
       {
-        role: 'Set Designer',
-        name: 'Antoine Meffre Chol',
-        url: 'https://www.instagram.com/antoine.meffrechol/',
-      },
-      {
-        role: 'Assistante Set Design',
-        name: 'Lena Moreau',
-        url: 'https://www.instagram.com/jusdebagarre/',
+        role: 'Set Design',
+        name: [
+          {
+            name: 'Antoine Meffre Chol',
+            url: 'https://www.instagram.com/antoine.meffrechol/',
+          },
+          {
+            name: 'Lena Moreau',
+            url: 'https://www.instagram.com/jusdebagarre/',
+          },
+        ],
       },
 
       // HMC
       {
         role: 'Makeup & Hair',
-        name: 'Alexandra Santos',
-        url: 'https://www.instagram.com/san_alexa/',
-      },
-      {
-        role: 'Assistante HMUA',
-        name: 'Alexandra Delvallé',
-        url: 'https://www.instagram.com/alexmua/',
+        name: [
+          { name: 'Alexandra Santos', url: 'https://www.instagram.com/san_alexa/' },
+          { name: 'Alexandra Delvallé', url: 'https://www.instagram.com/alexmua/' },
+        ],
       },
 
       // STYLISME
-      { role: 'Styliste', name: 'Alizée Henot', url: 'https://www.instagram.com/alyseehenot/' },
       {
-        role: 'Assistante styliste',
-        name: 'Alexia Giteau',
-        url: 'https://www.instagram.com/giteaualexia/',
+        role: 'Styliste',
+        name: [
+          { name: 'Alizée Henot', url: 'https://www.instagram.com/alyseehenot/' },
+          { name: 'Alexia Giteau', url: 'https://www.instagram.com/giteaualexia/' },
+        ],
       },
     ],
 
@@ -250,6 +261,7 @@ export const projects = [
       'video.mp4',
     ],
   },
+  // Projet Zegna
   {
     slug: 'zegna',
     title: 'Zegna',
@@ -299,6 +311,7 @@ export const projects = [
     coverImage: 'photo-5.jpg',
     images: ['photo-1.jpg', 'photo-2.jpg', 'photo-3.jpg', 'photo-4.jpg', 'video.mp4'],
   },
+  // Projet Feuillate
   {
     slug: 'feuillate',
     title: 'Feuillate',
@@ -327,11 +340,18 @@ export const projects = [
       },
       { role: 'Styliste', name: 'Margaux Dague', url: 'https://www.instagram.com/margauxdague/' },
       {
-        role: 'Talent',
-        name: 'Angélique de Catheu',
-        url: 'https://www.instagram.com/angeliquedc/',
+        role: 'Talents',
+        name: [
+          {
+            name: 'Angélique de Catheu',
+            url: 'https://www.instagram.com/angeliquedc/',
+          },
+          {
+            name: 'Marc Nasrallah',
+            url: 'https://www.instagram.com/marcnasrallah/',
+          },
+        ],
       },
-      { role: 'Talent', name: 'Marc Nasrallah', url: 'https://www.instagram.com/marcnasrallah/' },
     ],
     coverImage: 'photo-4.jpg',
     images: [
@@ -347,6 +367,7 @@ export const projects = [
       'video.mp4',
     ],
   },
+  // Projet GRTgaz
   {
     slug: 'grtgaz',
     title: 'GRTgaz',
@@ -356,71 +377,155 @@ export const projects = [
     clientUrl: '',
     production: 'Else X Think',
     productionUrl: 'https://www.instagram.com/tbwa.else/',
+    productionTeam: [
+      { name: 'Jennifer Bauche', url: 'https://www.instagram.com/jennybauche/' },
+      { name: 'Maximilien Laurans', url: 'https://www.instagram.com/xoumii1/' },
+      { name: 'Emme Arwidson', url: 'https://www.instagram.com/emmearwidson/' },
+      { name: 'Pétronille Desforges', url: 'https://www.instagram.com/petronille_dfg/' },
+      { name: 'Benjamin Granier', url: 'https://thinkproductions.fr/' },
+      { name: 'Jennifer Gastine', url: '' },
+    ],
+
+    crew: [
+      // RÉALISATION
+      { role: 'Réalisateur', name: 'Julien Faure', url: 'https://www.instagram.com/julien_f4ure/' },
+      { role: '1er AR', name: 'Teddy Laroutis', url: '' },
+
+      // IMAGE
+      { role: 'DOP', name: 'Jacques Ballard', url: 'https://www.instagram.com/jacquesballard/' },
+      { role: '1er AC', name: 'Étienne Dang', url: 'https://www.instagram.com/etiennedang/' },
+      {
+        role: '2nd AC',
+        name: 'Sébastien Guerrieri',
+        url: 'https://www.instagram.com/sebastienguerrieri/',
+      },
+      { role: 'Droniste', name: 'Benoît Finck', url: 'https://www.instagram.com/benoitfinck/' },
+      // ÉLECTRICITÉ
+      { role: 'Electro', name: 'Patrick Allard', url: 'https://www.instagram.com/pat.allard13/' },
+      {
+        role: 'Régie',
+        name: [
+          { name: 'Mehdi Seknaji', url: '' },
+          { name: 'Mathilde Bouvard', url: 'https://www.instagram.com/bouvardmathilde/' },
+          { name: 'Papam Bonnet', url: 'https://www.instagram.com/lepatafoin/' },
+          { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+          { name: 'Romain Raybaud', url: 'https://www.instagram.com/romainryb.voyages/' },
+          { name: 'Mickey Aubertin', url: 'https://www.instagram.com/mickey.aubertin/' },
+          { name: 'Vincent Gautier', url: 'https://www.instagram.com/vincent__gtr/' },
+          { name: 'Simon Saudubois', url: '' },
+        ],
+      },
+      // HMC
+      { role: 'Styliste', name: 'Peggy Favro', url: 'https://www.instagram.com/peggy_favro/' },
+      { role: 'Habilleuse', name: 'Emmanuelle Dauny', url: '' },
+      {
+        role: 'Makeup',
+        name: 'Corinne Bossu',
+        url: 'https://www.instagram.com/corinnebossumakeup/',
+      },
+    ],
+
     externalUrl: 'https://www.youtube.com/watch?v=h0BuvProHj8',
     coverImage: 'photo-1.jpg',
-    images: ['photo-1.jpg', 'video.mov'],
+    images: ['photo-1.jpg'],
   },
+  // Projet King Ben
   {
     slug: 'king-ben',
     title: 'King Ben',
     description: '',
     date: '12/24',
     client: 'Raphaël Toledano',
-    clientUrl: '',
+    clientUrl: 'https://www.instagram.com/toledddd/',
     production: 'Curb Films',
     productionUrl: 'https://www.instagram.com/curb_films/',
     productionTeam: [
-      { name: 'Jérémie Woog', url: '' },
-      { name: 'Yael Eligoulachvili', url: '' },
-      { name: 'Maximilien Laurans', url: '' },
-      { name: 'Basile Le Sauter', url: '' },
-      { name: 'Côme Le Sauter', url: '' },
+      { name: 'Yael Eligoulachvili', url: 'https://www.instagram.com/yael.elig/' },
+      { name: 'Jérémie Woog', url: 'https://www.instagram.com/jeremiewoog/' },
+      { name: 'Maximilien Laurans', url: 'https://www.instagram.com/xoumii1/' },
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+      { name: 'Basile Le Sauter', url: 'https://www.instagram.com/basilelesauter/' },
     ],
 
     crew: [
+      { role: 'Studio', name: 'Annodine Studio', url: 'https://www.instagram.com/annodinestudio/' },
       // RÉALISATION
-      { role: 'Réalisateur', name: 'Raphaël Toledano', url: '' },
-      { role: '1er AC', name: 'Rémi Cesbron Lavau', url: '' },
-      { role: '2nd AC', name: 'Manon Lauvergeat', url: '' },
+      { role: 'Réalisateur', name: 'Raphaël Toledano', url: 'https://www.instagram.com/toledddd/' },
+      { role: '1er AC', name: 'Rémi Cesbron Lavau', url: 'https://www.instagram.com/remi.cblv/' },
+      { role: '2nd AC', name: 'Manon Lauvergeat', url: 'https://www.instagram.com/manon_lvg01/' },
 
       // IMAGE
-      { role: 'DOP', name: 'Julien Lascar', url: '' },
-      { role: 'Cadreur', name: 'Jérémy Breuer', url: '' },
-      { role: 'Cadreur', name: 'Julien Benja', url: '' },
+      {
+        role: 'Image',
+        name: [
+          { name: 'Julien Lascar', url: 'https://www.instagram.com/julienlascar/' },
+          { name: 'Jérémy Breuer', url: 'https://www.instagram.com/pbjeremy/' },
+          { name: 'Julien Benja', url: '' },
+        ],
+      },
 
       // SON
-      { role: 'Ingénieure du son', name: 'Maelle Page', url: '' },
-      { role: 'Ingénieur du son', name: 'Quentin Larnicol', url: '' },
+      {
+        role: 'Son',
+        name: [
+          { name: 'Maelle Page', url: 'https://www.instagram.com/pagemaelle/' },
+          { name: 'Quentin Larnicol', url: 'https://www.instagram.com/larnicolquentin/' },
+        ],
+      },
 
       // ÉLECTRICITÉ
-      { role: 'Chef électricien', name: 'Clément Boyeldieu', url: '' },
-      { role: 'Électricien', name: 'Diego Lauvergne', url: '' },
+      {
+        role: 'Électro',
+        name: [
+          { name: 'Clément Boyeldieu', url: 'https://www.instagram.com/instabatjour/' },
+          { name: 'Diego Lauvergne', url: 'https://www.instagram.com/diegzo.lauv/' },
+        ],
+      },
 
       // MACHINERIE
-      { role: 'Chef machiniste', name: 'Fabrice Mignot', url: '' },
-      { role: 'Machiniste', name: 'Charlie Ayoun', url: '' },
-
+      {
+        role: 'Machino',
+        name: [
+          { name: 'Fabrice Mignot', url: 'https://www.instagram.com/mignot_fabrice/' },
+          { name: 'Charlie Ayoun', url: '' },
+        ],
+      },
       // COSTUMES
-      { role: 'Costumière', name: 'Manon Chapuis', url: '' },
+      {
+        role: 'Costumière',
+        name: 'Manon Chapuis',
+        url: 'https://www.instagram.com/manonlousophia/',
+      },
 
       // MAQUILLAGE / COIFFURE
-      { role: 'Maquilleuse - coiffeuse', name: 'Morgane Trepos', url: '' },
+      { role: 'Makeup & Hair', name: 'Morgane Trepos', url: '' },
 
       // DÉCORATION
-      { role: 'Cheffe décoratrice', name: 'Marie Thiboumery', url: '' },
-      { role: 'Assistant décoration', name: 'Arsène Bescou', url: '' },
+      {
+        role: 'Décoration',
+        name: [
+          { name: 'Marie Thiboumery', url: 'https://www.instagram.com/thiboumery/' },
+          { name: 'Arsène Bescou', url: '' },
+        ],
+      },
 
       // COMÉDIENS
-      { role: 'Comédien', name: 'Aaron Zenou', url: '' },
-      { role: 'Comédien', name: 'Carl Malapa', url: '' },
-      { role: 'Comédien', name: 'Stefan Godin', url: '' },
-      { role: 'Comédienne', name: 'Thais Kirby', url: '' },
+      {
+        role: 'Talent',
+        name: [
+          { name: 'Aaron Zenou', url: 'https://www.instagram.com/aaron.zenou/' },
+          { name: 'Carl Malapa', url: 'https://www.instagram.com/carl_malapa/' },
+          { name: 'Stefan Godin', url: 'https://www.instagram.com/stefangodin/' },
+          { name: 'Thais Kirby', url: 'https://www.instagram.com/thaiskirby/' },
+        ],
+      },
     ],
 
     externalUrl: 'https://www.youtube.com/playlist?list=PLULse5lnFK-AknVq3bOG27rO7-2GzaENR',
     coverImage: 'photo-1.jpg',
     images: ['photo-1.jpg'],
   },
+  // Projet L'Or
   {
     slug: 'or',
     title: "L'Or",
@@ -430,9 +535,45 @@ export const projects = [
     clientUrl: '',
     production: 'Prose on Pixels',
     productionUrl: 'https://www.proseonpixels.com/',
+    productionTeam: [
+      { name: 'Hind Assabi', url: 'https://www.instagram.com/hind.assabi/' },
+      { name: 'Nicolas Duranton', url: 'https://www.instagram.com/nico_drtn/' },
+      { name: 'Martin Lecoq', url: 'https://www.instagram.com/martin_lec/' },
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+    ],
+
+    crew: [
+      // RÉALISATION
+      {
+        role: 'Réalisateur',
+        name: 'Philémon Lieutaghi',
+        url: 'https://www.instagram.com/filetmon/',
+      },
+
+      // IMAGE / CAMÉRA
+      { role: 'DOP', name: 'Ivan Millan', url: '' },
+
+      // SET DESIGN
+      {
+        role: 'Set Designer',
+        name: 'Emilie Bouilloux',
+        url: 'https://www.instagram.com/_emilie_bouilloux_/',
+      },
+
+      // TALENTS
+      {
+        role: 'Talents',
+        name: [
+          { name: 'Ulysse Combasson', url: 'https://www.instagram.com/ulyssestuff/' },
+          { name: 'Fiona Valinsky', url: 'https://www.instagram.com/fionavalinski/' },
+        ],
+      },
+    ],
+
     coverImage: 'photo-3.jpg',
     images: ['photo-2.jpg', 'photo-3.jpg'],
   },
+  // Projet Les Echos
   {
     slug: 'echos',
     title: 'Les Echos',
@@ -445,6 +586,7 @@ export const projects = [
     coverImage: 'les-echos-week-end-422/photo-15.jpg',
     images: [],
   },
+  // Projet Monoprix
   {
     slug: 'monoprix',
     title: 'Monoprix',
@@ -457,6 +599,7 @@ export const projects = [
     coverImage: 'monoprix-innocence/photo-7.jpg',
     images: [],
   },
+  // Projet Stahr
   {
     slug: 'stahr',
     title: 'Stahr',
@@ -525,6 +668,7 @@ export const projects = [
     coverImage: 'photo-1.jpg',
     images: ['photo-1.jpg'],
   },
+  // Projet Vivier
   {
     slug: 'vivier',
     title: 'Vivier',
@@ -534,6 +678,55 @@ export const projects = [
     clientUrl: '',
     production: 'Collateral Films',
     productionUrl: 'https://www.collateralfilms.com/',
+    productionTeam: [
+      { name: 'Giulia Burroni', url: 'https://www.instagram.com/giuliaburroni/' },
+      { name: 'Sofia Castellaccio', url: '' },
+      { name: 'Fanny Magrin', url: 'https://www.instagram.com/fannymagrin/' },
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+    ],
+
+    crew: [
+      // PHOTO – CÉLÉBRITÉ
+      {
+        role: 'Photographe',
+        name: 'Francesco Brigida',
+        url: 'https://www.instagram.com/francescobrigidaphoto/',
+      },
+      {
+        role: 'Assistant lumière',
+        name: [
+          { name: 'Célia Marjolet', url: 'https://www.instagram.com/celiamarjolet/' },
+          { name: 'Louis Chauvet', url: '' },
+        ],
+      },
+      {
+        role: 'Digit',
+        name: 'Shehan Hewa Mallikage',
+        url: 'https://www.instagram.com/shehanhanwellage/',
+      },
+
+      // PHOTO – STILL LIFE
+      {
+        role: 'Photographe',
+        name: 'Leonard Oliviero',
+        url: 'https://www.instagram.com/leonard_oliviero/',
+      },
+      {
+        role: 'Assistant photographe',
+        name: 'Arnaud Scheid',
+        url: 'https://www.instagram.com/arnaudscheid/',
+      },
+      { role: 'Set designer', name: 'Sarah Chervet', url: '' },
+
+      {
+        role: 'Talents',
+        name: [
+          { name: 'Sarah Paulson', url: 'https://www.instagram.com/mssarahcatharinepaulson/' },
+          { name: 'Yeji', url: 'https://www.instagram.com/yezyizhere/' },
+        ],
+      },
+    ],
+
     coverImage: 'photo-1.jpg',
     images: [
       'photo-1.jpg',
@@ -544,6 +737,7 @@ export const projects = [
       'photo-6.jpg',
     ],
   },
+  // Projet Kitsuné
   {
     slug: 'kitsune',
     title: 'Maison Kitsuné',

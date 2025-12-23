@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const imageUrl = coverFileName ? `${baseUrl}/projects/kitsune/${project.slug}/${coverFileName}` : '';
 
   return {
-    title: `${project.title} - ${project.client || 'Projet'} | Côme Le Sauter`,
+    title: `${project.client || 'Projet'} | Côme Le Sauter`,
     description:
       project.description ||
       `Projet ${project.title}${project.client ? ` pour ${project.client}` : ''}${project.production ? ` produit par ${project.production}` : ''}.`,

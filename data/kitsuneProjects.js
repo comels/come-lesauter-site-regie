@@ -43,17 +43,21 @@ export const kitsuneProjects = [
         name: 'Emmanuelle Ramos',
         url: 'https://www.instagram.com/emmanuelleramos/',
       },
-      { role: 'Assistante styliste', name: 'Ana Lazaro', url: '' },
-      { role: 'Assistante styliste', name: 'Paula Louise Becker', url: '' },
-
+      {
+        role: 'Assistant styliste',
+        name: [
+          { name: 'Charlotte Robin', url: 'https://www.instagram.com/_charlotterobin/' },
+          { name: 'Sophie Legros', url: '' },
+        ],
+      },
       // BEAUTY / HMC
       {
-        role: 'Groomer',
-        name: 'Noémie Laborde',
-        url: 'https://www.instagram.com/noemie_laborde_/',
+        role: 'Makeup & Hair',
+        name: [
+          { name: 'Noémie Laborde', url: 'https://www.instagram.com/noemie_laborde_' },
+          { name: 'Anaëlle Pina', url: '' },
+        ],
       },
-      { role: 'Assistante groomer', name: 'Anaëlle Pina', url: '' },
-
       // SET DESIGN
       {
         role: 'Set Designer',
@@ -62,9 +66,14 @@ export const kitsuneProjects = [
       },
 
       // TALENTS
-      { role: 'Talent', name: 'Zoey Kamatari', url: 'https://www.instagram.com/zoey.kamatari/' },
-      { role: 'Talent', name: 'Patric Kuo', url: 'https://www.instagram.com/pkuooo/' },
-      { role: 'Talent', name: 'Stanislas Noblinski', url: '' },
+      {
+        role: 'Talents',
+        name: [
+          { name: 'Zoey Kamatari', url: 'https://www.instagram.com/zoey.kamatari/' },
+          { name: 'Patric Kuo', url: 'https://www.instagram.com/pkuooo/' },
+          { name: 'Stanislas Noblinski', url: '' },
+        ],
+      },
     ],
 
     coverImage: 'photo-5.jpg',
@@ -139,15 +148,21 @@ export const kitsuneProjects = [
 
       // TALENTS
       {
-        role: 'Talent',
-        name: 'Nader Boussandel',
-        url: 'https://www.instagram.com/naderboussandel/',
-      },
-      { role: 'Talent', name: 'Jacques Shu', url: 'https://www.instagram.com/jacquesshu/' },
-      {
-        role: 'Talent',
-        name: 'Véronique Tristram',
-        url: 'https://www.instagram.com/veroniquetristram/',
+        role: 'Talents',
+        name: [
+          {
+            name: 'Nader Boussandel',
+            url: 'https://www.instagram.com/naderboussandel/',
+          },
+          {
+            name: 'Jacques Shu',
+            url: 'https://www.instagram.com/jacquesshu/',
+          },
+          {
+            name: 'Véronique Tristram',
+            url: 'https://www.instagram.com/veroniquetristram/',
+          },
+        ],
       },
     ],
 

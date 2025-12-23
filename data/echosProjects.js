@@ -35,16 +35,19 @@ export const echosProjects = [
       },
       {
         role: 'Assistant Styliste',
-        name: 'Tatiana Vereshchagina',
-        url: 'https://www.instagram.com/tativer/',
+        name: [
+          {
+            name: 'Tatiana Vereshchagina',
+            url: 'https://www.instagram.com/tativer/',
+          },
+          {
+            name: 'Bohdan Puzyk',
+            url: 'https://www.instagram.com/bpuzik/',
+          },
+        ],
       },
       {
-        role: 'Assistant Styliste',
-        name: 'Bohdan Puzyk',
-        url: 'https://www.instagram.com/bpuzik/',
-      },
-      {
-        role: 'Hair Stylist',
+        role: 'Hair',
         name: 'Anna Sofie Begtrup',
         url: 'https://www.instagram.com/annesofie.begtrup/',
       },

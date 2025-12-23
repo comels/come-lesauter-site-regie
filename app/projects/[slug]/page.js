@@ -5,7 +5,10 @@ import { getCoverFileName } from '../../../utils/imageUtils';
 
 export async function generateStaticParams() {
   return projects
-    .filter((project) => project.slug !== 'monoprix' && project.slug !== 'echos' && project.slug !== 'kitsune')
+    .filter(
+      (project) =>
+        project.slug !== 'monoprix' && project.slug !== 'echos' && project.slug !== 'kitsune'
+    )
     .map((project) => ({ slug: project.slug }));
 }
 
@@ -24,7 +27,7 @@ export async function generateMetadata({ params }) {
   const imageUrl = coverFileName ? `${baseUrl}/projects/${project.slug}/${coverFileName}` : '';
 
   return {
-    title: `${project.title} - ${project.client || 'Projet'} | Côme Le Sauter`,
+    title: `${project.client || 'Projet'} | Côme Le Sauter`,
     description:
       project.description ||
       `Projet ${project.title}${project.client ? ` pour ${project.client}` : ''}${project.production ? ` produit par ${project.production}` : ''}.`,
@@ -58,7 +61,12 @@ export async function generateMetadata({ params }) {
 export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.slug === params.slug);
 
-  if (!project || project.slug === 'monoprix' || project.slug === 'echos' || project.slug === 'kitsune') {
+  if (
+    !project ||
+    project.slug === 'monoprix' ||
+    project.slug === 'echos' ||
+    project.slug === 'kitsune'
+  ) {
     notFound();
   }
 

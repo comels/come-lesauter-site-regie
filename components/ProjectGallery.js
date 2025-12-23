@@ -95,7 +95,7 @@ export default function ProjectGallery({
           )}
           {/* Informations additionnelles (crew) - photographe, réalisateur, set designer, etc. */}
           {project.crew && project.crew.length > 0 && (
-            <div className="mb-4 space-y-1">
+            <div className="mb-4 max-w-xl space-y-1">
               {project.crew.map((member, index) => (
                 <p key={index} className="text-lg font-light">
                   {member.role} :{' '}

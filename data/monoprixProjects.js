@@ -281,13 +281,10 @@ export const monoprixProjects = [
       },
       {
         role: 'DOP',
-        name: 'Antoine Coquelet',
-        url: 'https://www.instagram.com/antoine.coquelet/',
-      },
-      {
-        role: 'DOP',
-        name: 'Adriano Coelho',
-        url: 'https://www.instagram.com/adrianoclh/',
+        name: [
+          { name: 'Antoine Coquelet', url: 'https://www.instagram.com/antoine.coquelet/' },
+          { name: 'Adriano Coelho', url: 'https://www.instagram.com/adrianoclh/' },
+        ],
       },
       {
         role: 'Set Designer',
