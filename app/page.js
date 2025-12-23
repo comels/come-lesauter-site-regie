@@ -55,14 +55,15 @@ export default function Home() {
     'zegna',
     'echos',
     'stahr',
-    'breitling',
-    'feuillate',
-    'grtgaz',
-    'king-ben',
-    'FFR',
-    'or',
-    'courir-ruban',
     'monoprix',
+    'breitling',
+    'kitsune',
+    'feuillate',
+    'king-ben',
+    'grtgaz',
+    'FFR',
+    'courir-ruban',
+    'or',
     'vivier',
   ];
 
@@ -77,32 +78,17 @@ export default function Home() {
     'max-h-[450px]',
     'max-h-[380px]',
     'max-h-[420px]',
-    'max-h-[350px]',
-    'max-h-[440px]',
+    'max-h-[380px]',
     'max-h-[360px]',
-    'max-h-[430px]',
-    'max-h-[450px]',
-    'max-h-[410px]',
+    'max-h-[440px]',
     'max-h-[370px]',
+    'max-h-[450px]',
+    'max-h-[380px]',
     'max-h-[400px]',
-    'max-h-[340px]',
+    'max-h-[370px]',
+    'max-h-[430px]',
+    'max-h-[390px]',
   ];
-
-  /**
-   * Calcule le nombre d'images/vidéos dans un projet
-   * Pour Monoprix et Echos, retourne le nombre de sous-projets
-   * Pour les autres, retourne le nombre total d'images (la couverture est déjà incluse dans le tableau images)
-   */
-  const getCount = (project) => {
-    if (project.slug === 'monoprix') {
-      return 7; // Nombre de sous-projets Monoprix
-    }
-    if (project.slug === 'echos') {
-      return 3; // Nombre de sous-projets Echos
-    }
-    // Pour les autres projets : le nombre total d'images (couverture incluse dans images)
-    return project.images ? project.images.length : 0;
-  };
 
   return (
     <>
@@ -134,13 +120,9 @@ export default function Home() {
               const projectHref = getProjectHref(project);
               // Hauteur maximale variable pour créer un effet visuel
               const maxHeightClass = maxHeights[index % maxHeights.length];
-              // Nombre d'images dans le projet
-              const count = getCount(project);
 
-              // Vérifie si le projet a un lien externe (ex: YouTube)
-              const isExternalLink = project.externalUrl;
-              // Utilise le lien externe si disponible, sinon le lien interne
-              const linkHref = isExternalLink ? project.externalUrl : projectHref;
+              // Toujours utiliser le lien interne vers la page du projet
+              const linkHref = projectHref;
               // Classes CSS communes pour toutes les images
               const commonImageClasses =
                 'h-auto w-auto max-w-xs select-none object-contain object-bottom grayscale transition-all duration-300 group-hover/image:grayscale-0';
@@ -171,25 +153,20 @@ export default function Home() {
                   key={project.slug}
                   className="group/image flex flex-shrink-0 flex-col opacity-100 transition-opacity duration-300 hover:!opacity-100 group-hover:opacity-60"
                 >
-                  {/* Overlay avec client/production au survol */}
-                  <ProjectInfoOverlay project={project} />
-                  {/* Badge avec le nombre d'images */}
-                  <div className="mb-1 text-sm font-light">{count}</div>
-                  {/* Lien cliquable vers le projet (externe ou interne) */}
-                  {isExternalLink ? (
-                    <a
-                      href={linkHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-end"
-                    >
-                      {imageContent}
-                    </a>
-                  ) : (
-                    <Link href={linkHref} className="flex items-end">
-                      {imageContent}
-                    </Link>
+                  {/* Overlay avec client/production et date au survol */}
+                  {(project.client || project.production || project.date) && (
+                    <div className="mb-2 flex items-end justify-between opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                      <ProjectInfoOverlay project={project} />
+                      {/* Date du projet - à droite */}
+                      {project.date && (
+                        <div className="mr-1 whitespace-nowrap font-thin">{project.date}</div>
+                      )}
+                    </div>
                   )}
+                  {/* Lien cliquable vers le projet */}
+                  <Link href={linkHref} className="flex items-end">
+                    {imageContent}
+                  </Link>
                 </div>
               );
             })}

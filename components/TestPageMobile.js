@@ -20,10 +20,8 @@ export default function TestPageMobile({ projects }) {
         // Lien vers la page du projet
         const projectHref = getProjectHref(project);
 
-        // Vérifie si le projet a un lien externe
-        const isExternalLink = project.externalUrl;
-        // Utilise le lien externe si disponible, sinon le lien interne
-        const linkHref = isExternalLink ? project.externalUrl : projectHref;
+        // Toujours utiliser le lien interne vers la page du projet
+        const linkHref = projectHref;
         // Classes CSS pour le conteneur d'image (pas de grayscale sur mobile - images en couleur)
         const imageContainerClasses = 'relative aspect-[3/4] w-full select-none overflow-hidden';
         // Classes CSS pour les médias (vidéo/image)
@@ -72,16 +70,10 @@ export default function TestPageMobile({ projects }) {
               </div>
             )}
 
-            {/* Image cliquable - lien externe ou interne selon le projet */}
-            {isExternalLink ? (
-              <a href={linkHref} target="_blank" rel="noopener noreferrer" className="group block">
-                {imageContent}
-              </a>
-            ) : (
-              <Link href={linkHref} className="group block">
-                {imageContent}
-              </Link>
-            )}
+            {/* Image cliquable - lien vers la page du projet */}
+            <Link href={linkHref} className="group block">
+              {imageContent}
+            </Link>
           </div>
         );
       })}

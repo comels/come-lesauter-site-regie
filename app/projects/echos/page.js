@@ -10,7 +10,7 @@ export default function EchosPage() {
         <h1 className="text-lg font-semibold uppercase tracking-tight">Les Échos</h1>
         {echosProjects[0]?.production && (
           <h2 className="mb-4 text-lg font-light">
-            Prod : {renderProduction(echosProjects[0].production, echosProjects[0].productionUrl)}
+            Prod : {renderProduction(echosProjects[0].production, echosProjects[0].productionUrl, true)}
           </h2>
         )}
       </div>

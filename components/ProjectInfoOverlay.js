@@ -17,7 +17,7 @@ export default function ProjectInfoOverlay({ project }) {
   }
 
   return (
-    <div className="mb-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+    <div>
       {/* Nom du client - cliquable si clientUrl existe */}
       {project.client && (
         <p className="text-lg font-semibold uppercase leading-snug tracking-tight">

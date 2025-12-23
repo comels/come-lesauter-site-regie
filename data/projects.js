@@ -3,6 +3,7 @@ export const projects = [
     slug: 'FFR',
     title: 'FFR',
     description: '',
+    date: '07/25',
     client: 'FFR',
     clientUrl: '',
     production: 'Prose on Pixels',
@@ -45,13 +46,14 @@ export const projects = [
   {
     slug: 'aigle',
     title: 'Aigle',
-    description: 'Aigle',
-    date: '12/2025',
+    description: '',
+    date: '11/24',
     client: 'Aigle',
     clientUrl: '',
     production: 'FaireFaire',
     productionUrl: 'https://www.instagram.com/fairefairefr/',
     productionTeam: [
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
       { name: 'Laura Thomassaint', url: 'https://www.instagram.com/laura.thomassaint/' },
       { name: 'Arsène Filliatreau', url: 'https://www.instagram.com/ar.sn/' },
       { name: 'Hélène Birlouez', url: 'https://www.instagram.com/resspire/' },
@@ -88,11 +90,60 @@ export const projects = [
   {
     slug: 'breitling',
     title: 'Breitling',
-    description: 'Breitling',
+    description: '',
+    date: '03/25',
     client: 'Breitling',
     clientUrl: '',
     production: 'Ctzar',
     productionUrl: 'https://ctzar.com/',
+    productionTeam: [
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+      { name: 'Nahéma Fryer', url: 'https://www.instagram.com/nahema.fryer/' },
+      { name: 'Alice Astié', url: 'https://www.instagram.com/alice.astie/' },
+      { name: 'Elsa Grand-Clément', url: '' },
+      { name: 'Marie-Charlotte Mathieu', url: 'https://www.instagram.com/mariecharlotte_m/' },
+      { name: 'Camille Simoneau', url: 'https://www.instagram.com/cam_simoneau/' },
+      { name: 'Chloé Bernabé', url: 'https://www.instagram.com/chloelsaa/' },
+    ],
+
+    crew: [
+      // RÉALISATION / VIDÉO
+      {
+        role: 'Réalisateur',
+        name: 'Benjamin Audour',
+        url: 'https://www.instagram.com/benjaminaudour/',
+      },
+      { role: 'DOP', name: 'Pierre Edelmann', url: 'https://www.instagram.com/yungmann/' },
+
+      // IMAGE / PHOTO
+      {
+        role: 'Photographe',
+        name: 'Mathieu Delacroix',
+        url: 'https://www.instagram.com/mathieumartindelacroix/',
+      },
+      {
+        role: 'Assistant photographe',
+        name: 'Thibault Delhom',
+        url: 'https://www.instagram.com/thibaultdlm/',
+      },
+      { role: 'Digitech', name: 'Nathan Zaoui', url: 'https://www.instagram.com/nathan_zaoui_/' },
+
+      // SET DESIGN
+      { role: 'Set Designer', name: 'Liv (SUNDE)', url: 'https://www.instagram.com/sunde_fleurs/' },
+      {
+        role: 'Assistante Set Designer',
+        name: 'Paloma Laratte',
+        url: 'https://www.instagram.com/definitely__ok/',
+      },
+
+      // STYLISME / GLAM
+      {
+        role: 'Make up',
+        name: 'Karla Garza',
+        url: 'https://www.instagram.com/makeupbykarlagarza/',
+      },
+      { role: 'Manucure', name: 'Chloé Nguyen', url: 'https://www.instagram.com/yohshe/' },
+    ],
     coverImage: 'photo-2.jpg',
     images: [
       'photo-1.jpg',
@@ -107,6 +158,7 @@ export const projects = [
     slug: 'courir-ruban',
     title: 'Courir Ruban',
     description: 'Courir x Ruban Rose',
+    date: '07/25',
     client: 'Courir x Ruban Rose',
     clientUrl: '',
     production: 'Deux Nuances',
@@ -201,11 +253,17 @@ export const projects = [
   {
     slug: 'zegna',
     title: 'Zegna',
-    description: 'Zegna',
+    description: '',
+    date: '09/25',
     client: 'Zegna',
     clientUrl: '',
     production: 'Ref Productions',
     productionUrl: 'https://www.instagram.com/ref_prod/',
+    productionTeam: [
+      { name: 'Côme Le Sauter', url: 'https://www.instagram.com/comelesauter/' },
+      { name: 'Fanny Magrin', url: 'https://www.instagram.com/fannymagrin/' },
+      { name: 'Paco Bonelli', url: 'https://www.instagram.com/pacobonelli/' },
+    ],
     crew: [
       {
         role: 'Réalisateur',
@@ -228,6 +286,11 @@ export const projects = [
         url: 'https://www.instagram.com/marcopionato/',
       },
       {
+        role: 'Gaffer',
+        name: 'Mickaël Delmas',
+        url: 'https://www.instagram.com/mickaeldelmas/',
+      },
+      {
         role: 'Talent',
         name: 'Ousmane Dembélé',
         url: 'https://www.instagram.com/o.dembele7/',
@@ -240,6 +303,7 @@ export const projects = [
     slug: 'feuillate',
     title: 'Feuillate',
     description: 'Nicolas Feuillatte',
+    date: '07/25',
     client: 'Nicolas Feuillatte',
     clientUrl: '',
     production: 'Ctzar',
@@ -287,6 +351,7 @@ export const projects = [
     slug: 'grtgaz',
     title: 'GRTgaz',
     description: 'Natran (Grtgaz)',
+    date: '12/24',
     client: 'Natran (Grtgaz)',
     clientUrl: '',
     production: 'Else X Think',
@@ -299,10 +364,59 @@ export const projects = [
     slug: 'king-ben',
     title: 'King Ben',
     description: '',
+    date: '12/24',
     client: 'Raphaël Toledano',
     clientUrl: '',
     production: 'Curb Films',
     productionUrl: 'https://www.instagram.com/curb_films/',
+    productionTeam: [
+      { name: 'Jérémie Woog', url: '' },
+      { name: 'Yael Eligoulachvili', url: '' },
+      { name: 'Maximilien Laurans', url: '' },
+      { name: 'Basile Le Sauter', url: '' },
+      { name: 'Côme Le Sauter', url: '' },
+    ],
+
+    crew: [
+      // RÉALISATION
+      { role: 'Réalisateur', name: 'Raphaël Toledano', url: '' },
+      { role: '1er AC', name: 'Rémi Cesbron Lavau', url: '' },
+      { role: '2nd AC', name: 'Manon Lauvergeat', url: '' },
+
+      // IMAGE
+      { role: 'DOP', name: 'Julien Lascar', url: '' },
+      { role: 'Cadreur', name: 'Jérémy Breuer', url: '' },
+      { role: 'Cadreur', name: 'Julien Benja', url: '' },
+
+      // SON
+      { role: 'Ingénieure du son', name: 'Maelle Page', url: '' },
+      { role: 'Ingénieur du son', name: 'Quentin Larnicol', url: '' },
+
+      // ÉLECTRICITÉ
+      { role: 'Chef électricien', name: 'Clément Boyeldieu', url: '' },
+      { role: 'Électricien', name: 'Diego Lauvergne', url: '' },
+
+      // MACHINERIE
+      { role: 'Chef machiniste', name: 'Fabrice Mignot', url: '' },
+      { role: 'Machiniste', name: 'Charlie Ayoun', url: '' },
+
+      // COSTUMES
+      { role: 'Costumière', name: 'Manon Chapuis', url: '' },
+
+      // MAQUILLAGE / COIFFURE
+      { role: 'Maquilleuse - coiffeuse', name: 'Morgane Trepos', url: '' },
+
+      // DÉCORATION
+      { role: 'Cheffe décoratrice', name: 'Marie Thiboumery', url: '' },
+      { role: 'Assistant décoration', name: 'Arsène Bescou', url: '' },
+
+      // COMÉDIENS
+      { role: 'Comédien', name: 'Aaron Zenou', url: '' },
+      { role: 'Comédien', name: 'Carl Malapa', url: '' },
+      { role: 'Comédien', name: 'Stefan Godin', url: '' },
+      { role: 'Comédienne', name: 'Thais Kirby', url: '' },
+    ],
+
     externalUrl: 'https://www.youtube.com/playlist?list=PLULse5lnFK-AknVq3bOG27rO7-2GzaENR',
     coverImage: 'photo-1.jpg',
     images: ['photo-1.jpg'],
@@ -311,6 +425,7 @@ export const projects = [
     slug: 'or',
     title: "L'Or",
     description: "L'Or Expresso",
+    date: '07/25',
     client: "L'OR Expresso",
     clientUrl: '',
     production: 'Prose on Pixels',
@@ -322,6 +437,7 @@ export const projects = [
     slug: 'echos',
     title: 'Les Echos',
     description: '',
+    date: '',
     client: 'Les Échos',
     clientUrl: '',
     production: 'Diémé Agency',
@@ -332,7 +448,8 @@ export const projects = [
   {
     slug: 'monoprix',
     title: 'Monoprix',
-    description: 'Monoprix',
+    description: '',
+    date: '',
     client: 'Monoprix',
     clientUrl: '',
     production: 'T.crew',
@@ -344,6 +461,7 @@ export const projects = [
     slug: 'stahr',
     title: 'Stahr',
     description: '',
+    date: '03/25',
     client: 'Charles Cadic',
     clientUrl: 'https://www.instagram.com/charlescadic/',
     production: 'Le Fresnoy',
@@ -411,6 +529,7 @@ export const projects = [
     slug: 'vivier',
     title: 'Vivier',
     description: 'Roger Vivier',
+    date: '09/25',
     client: 'Roger Vivier',
     clientUrl: '',
     production: 'Collateral Films',
@@ -424,5 +543,17 @@ export const projects = [
       'photo-5.jpg',
       'photo-6.jpg',
     ],
+  },
+  {
+    slug: 'kitsune',
+    title: 'Maison Kitsuné',
+    description: '',
+    date: '',
+    client: 'Maison Kitsuné',
+    clientUrl: '',
+    production: 'T.crew',
+    productionUrl: 'https://www.instagram.com/tcrewagency/',
+    coverImage: 'hunter/photo-5.jpg',
+    images: [],
   },
 ];

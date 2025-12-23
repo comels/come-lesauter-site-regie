@@ -14,8 +14,6 @@ import { isVideoFile } from '../utils/imageUtils';
  * @param {string} projectHref - Lien vers la page du projet
  * @param {boolean} hasMultipleImages - Le projet a plusieurs images (donc cliquable)
  * @param {boolean} noEffects - Désactive les effets de survol (grayscale)
- * @param {boolean} showCount - Affiche le nombre d'images
- * @param {number} count - Nombre d'images à afficher
  * @param {boolean} showDescription - Affiche la description du projet
  */
 export default function ProjectCard({
@@ -24,8 +22,6 @@ export default function ProjectCard({
   projectHref,
   hasMultipleImages,
   noEffects = false,
-  showCount = false,
-  count = null,
   showDescription = false,
 }) {
   // Classes CSS pour l'effet grayscale au survol
@@ -72,15 +68,10 @@ export default function ProjectCard({
     <div className={containerClasses}>
       {/* Description du projet (affichée si showDescription est true) */}
       {showDescription && project.description && (
-        <div className="mb-2 font-semibold uppercase">{project.description}</div>
+        <div className="font-semibold uppercase">{project.description}</div>
       )}
-      {/* Compteur d'images (affiché si showCount est true) */}
-      {showCount && count !== null && (
-        <div className="mb-1 flex items-center justify-between text-sm font-light">
-          <span>{count}</span>
-          {project.description && <span>{project.description}</span>}
-        </div>
-      )}
+      {/* Date du projet (affichée en dessous de la description) */}
+      {showDescription && project.date && <div className="mb-2 font-thin">{project.date}</div>}
       {/* Contenu de l'image - cliquable uniquement si le projet a plusieurs images */}
       <div className="mt-auto">
         {hasMultipleImages ? (

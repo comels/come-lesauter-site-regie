@@ -77,7 +77,7 @@ export default function ProjectGallery({
           {project.date && <p className="mb-4 text-lg font-light">Date : {project.date}</p>}
           {/* Production Team - plusieurs personnes de la production, affichées sur une ligne avec virgules */}
           {project.productionTeam && project.productionTeam.length > 0 && (
-            <p className="mb-4 text-lg font-light">
+            <p className="mb-4 max-w-xl text-lg font-light">
               Production Team :{' '}
               {project.productionTeam.map((person, index) => (
                 <span key={index}>
@@ -132,6 +132,17 @@ export default function ProjectGallery({
                   )}
                 </p>
               ))}
+            </div>
+          )}
+          {/* Lien externe (YouTube, etc.) */}
+          {project.externalUrl && (
+            <div className="mb-4">
+              <ExternalLink
+                href={project.externalUrl}
+                className="text-lg font-medium hover:line-through"
+              >
+                Voir sur YouTube
+              </ExternalLink>
             </div>
           )}
         </div>

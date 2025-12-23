@@ -2,7 +2,8 @@ export const echosProjects = [
   {
     slug: 'les-echos-week-end-422',
     title: 'Les Échos Week-end n°422',
-    description: 'Les Échos Week-end n°422',
+    description: 'Week-end n°422',
+    date: '11/24',
     client: 'Les Échos',
     clientUrl: '',
     production: 'Diémé Agency',
@@ -80,7 +81,8 @@ export const echosProjects = [
   {
     slug: 'les-echos-serie-limitee-243',
     title: 'Les Échos Série Limitée n°243',
-    description: 'Les Échos Série Limitée n°243',
+    description: 'Série Limitée n°243',
+    date: '07/25',
     client: 'Les Échos',
     clientUrl: '',
     production: 'Diémé Agency',
@@ -144,7 +146,8 @@ export const echosProjects = [
   {
     slug: 'les-echos-week-end-438',
     title: 'Les Échos Week-end n°438',
-    description: 'Les Échos Week-end n°438',
+    description: 'Week-end n°438',
+    date: '02/25',
     client: 'Les Échos',
     clientUrl: '',
     production: 'Diémé Agency',

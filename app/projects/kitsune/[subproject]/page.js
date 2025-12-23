@@ -1,16 +1,14 @@
-import { projects } from '../../../data/projects';
+import { kitsuneProjects } from '../../../../data/kitsuneProjects';
 import { notFound } from 'next/navigation';
-import ProjectGallery from '../../../components/ProjectGallery';
-import { getCoverFileName } from '../../../utils/imageUtils';
+import ProjectGallery from '../../../../components/ProjectGallery';
+import { getCoverFileName } from '../../../../utils/imageUtils';
 
 export async function generateStaticParams() {
-  return projects
-    .filter((project) => project.slug !== 'monoprix' && project.slug !== 'echos' && project.slug !== 'kitsune')
-    .map((project) => ({ slug: project.slug }));
+  return kitsuneProjects.map((project) => ({ subproject: project.slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const project = kitsuneProjects.find((p) => p.slug === params.subproject);
 
   if (!project) {
     return {
@@ -19,9 +17,9 @@ export async function generateMetadata({ params }) {
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://comelesauter.vercel.app';
-  const projectUrl = `${baseUrl}/projects/${project.slug}`;
+  const projectUrl = `${baseUrl}/projects/kitsune/${project.slug}`;
   const coverFileName = getCoverFileName(project);
-  const imageUrl = coverFileName ? `${baseUrl}/projects/${project.slug}/${coverFileName}` : '';
+  const imageUrl = coverFileName ? `${baseUrl}/projects/kitsune/${project.slug}/${coverFileName}` : '';
 
   return {
     title: `${project.title} - ${project.client || 'Projet'} | Côme Le Sauter`,
@@ -55,16 +53,17 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ProjectPage({ params }) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default function KitsuneSubprojectPage({ params }) {
+  const project = kitsuneProjects.find((p) => p.slug === params.subproject);
 
-  if (!project || project.slug === 'monoprix' || project.slug === 'echos' || project.slug === 'kitsune') {
+  if (!project) {
     notFound();
   }
 
   return (
     <main className="min-h-screen px-6 py-6 pt-28">
-      <ProjectGallery project={project} basePath={`/projects/${project.slug}`} showHeader={true} />
+      <ProjectGallery project={project} basePath={`/projects/kitsune/${project.slug}`} showHeader={true} />
     </main>
   );
 }
+
