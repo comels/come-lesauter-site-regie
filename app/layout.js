@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Côme Le Sauter - Régisseur Production',
+  title: 'Côme Le Sauter - Régisseur',
   description:
     'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata = {
     locale: 'fr_FR',
     url: 'https://comelesauter.vercel.app',
     siteName: 'Côme Le Sauter - Régisseur',
-    title: 'Côme Le Sauter - Régisseur Production',
+    title: 'Côme Le Sauter - Régisseur',
     description:
       'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
     images: [
@@ -42,7 +42,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Côme Le Sauter - Régisseur Production',
+    title: 'Côme Le Sauter - Régisseur',
     description:
       'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales.',
     images: ['/about-4.jpg'],

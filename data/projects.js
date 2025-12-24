@@ -19,7 +19,7 @@ export const projects = [
 
     crew: [
       {
-        role: 'Réalisatrice / DOP',
+        role: 'Réalisatrice / Photographe',
         name: 'Lily Rault',
         url: 'https://www.instagram.com/lilyrault_/',
       },
@@ -46,8 +46,18 @@ export const projects = [
       },
     ],
 
-    coverImage: 'video-1.mp4',
-    images: ['video-1.mp4'],
+    coverImage: 'photo-5.jpg',
+    images: [
+      'video-1.mp4',
+      'photo-1.jpg',
+      'photo-2.jpg',
+      'photo-3.jpg',
+      'photo-4.jpg',
+      'photo-5.jpg',
+      'photo-6.jpg',
+      'photo-7.jpg',
+      'photo-8.jpg',
+    ],
   },
   // Projet Aigle
   {

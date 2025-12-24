@@ -46,26 +46,32 @@ export default function TestPageMobile({ projects }) {
 
         return (
           <div key={project.slug}>
-            {/* Client et Production - toujours visibles au-dessus de l'image */}
-            {(project.client || project.production) && (
-              <div className="mb-2">
-                {/* Nom du client - cliquable si clientUrl existe */}
-                {project.client && (
-                  <p className="text-lg font-semibold uppercase leading-snug tracking-tight">
-                    {project.clientUrl ? (
-                      <ExternalLink href={project.clientUrl} className="hover:line-through">
-                        {project.client}
-                      </ExternalLink>
-                    ) : (
-                      project.client
-                    )}
-                  </p>
-                )}
-                {/* Nom de la production - peut être une chaîne ou un tableau de personnes */}
-                {project.production && (
-                  <p className="text-lg font-thin leading-snug">
-                    {renderProduction(project.production, project.productionUrl)}
-                  </p>
+            {/* Client, Production et Date - toujours visibles au-dessus de l'image */}
+            {(project.client || project.production || project.date) && (
+              <div className="mb-2 flex items-end justify-between">
+                <div>
+                  {/* Nom du client - cliquable si clientUrl existe */}
+                  {project.client && (
+                    <p className="text-lg font-semibold uppercase leading-snug tracking-tight">
+                      {project.clientUrl ? (
+                        <ExternalLink href={project.clientUrl} className="hover:line-through">
+                          {project.client}
+                        </ExternalLink>
+                      ) : (
+                        project.client
+                      )}
+                    </p>
+                  )}
+                  {/* Nom de la production - peut être une chaîne ou un tableau de personnes */}
+                  {project.production && (
+                    <p className="text-lg font-thin leading-snug">
+                      {renderProduction(project.production, project.productionUrl)}
+                    </p>
+                  )}
+                </div>
+                {/* Date du projet - à droite */}
+                {project.date && (
+                  <div className="mr-1 whitespace-nowrap font-thin text-lg">{project.date}</div>
                 )}
               </div>
             )}
