@@ -2,15 +2,26 @@ import Image from 'next/image';
 import VideoWithSound from './VideoWithSound';
 import ExternalLink from './ExternalLink';
 import { renderProduction } from '../utils/productionUtils';
+import { getCoverFileName, isVideoFile } from '../utils/imageUtils';
 
 /**
  * Composant réutilisable pour afficher une galerie de projets
- * Affiche le cover et toutes les images/vidéos d'un projet dans une grille
  *
- * @param {Object} project - Les données du projet (client, production, coverFile, images, etc.)
+ * Affiche l'image de couverture et toutes les images/vidéos d'un projet dans une grille responsive.
+ * Utilisé sur les pages de projets individuels et les pages de sous-projets (Monoprix, Echos, Kitsuné).
+ *
+ * STRUCTURE DES DONNÉES DU PROJET :
+ * - project.coverImage : Nom du fichier de couverture (ex: 'photo-1.jpg') - NOUVEAU SYSTÈME
+ * - project.coverFile : Nom du fichier de couverture (rétrocompatibilité avec ancien système)
+ * - project.images : Tableau de tous les fichiers médias (photos et vidéos)
+ * - project.client : Nom du client
+ * - project.production : Nom de la production (peut être une chaîne ou un tableau)
+ * - project.crew : Tableau des membres de l'équipe (photographe, réalisateur, etc.)
+ *
+ * @param {Object} project - Les données du projet
  * @param {string} basePath - Le chemin de base pour les images (ex: '/projects/monoprix/project-slug')
- * @param {string} gridCols - Classes Tailwind pour la grille (ex: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')
- * @param {boolean} showHeader - Affiche ou non l'en-tête avec client et production
+ * @param {string} gridCols - Classes Tailwind pour la grille (défaut: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3')
+ * @param {boolean} showHeader - Affiche l'en-tête avec client, production, date et équipe si true
  */
 export default function ProjectGallery({
   project,
@@ -18,39 +29,26 @@ export default function ProjectGallery({
   gridCols = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
   showHeader = false,
 }) {
-  // Détermine le nom de fichier de la couverture (nouveau système avec coverImage ou ancien avec coverFile)
-  const getCoverFileName = () => {
-    if (project.coverImage) {
-      return project.coverImage; // Nouveau système
-    }
-    if (project.coverFile) {
-      return project.coverFile; // Ancien système (rétrocompatibilité)
-    }
-    // Si aucun n'est défini et qu'il y a des images, utilise la première
-    if (project.images && project.images.length > 0) {
-      return project.images[0];
-    }
-    return null;
-  };
-
-  const coverFileName = getCoverFileName();
+  // Récupère le nom du fichier de couverture (utilise la fonction utilitaire centralisée)
+  const coverFileName = getCoverFileName(project);
   const coverPath = coverFileName ? `${basePath}/${coverFileName}` : null;
 
-  // Filtre les images pour exclure la couverture
+  // Filtre les images pour exclure la couverture (évite de l'afficher deux fois)
   const otherImages = project.images?.filter((img) => img !== coverFileName) || [];
 
-  // Vérifie si la couverture est une vidéo
-  const isCoverVideo =
-    coverFileName && /\.(mp4|mov|webm|ogg)$/i.test(coverFileName)
-      ? true
-      : project.coverType === 'video';
+  // Vérifie si la couverture est une vidéo (utilise la fonction utilitaire centralisée)
+  const isCoverVideo = isVideoFile(coverFileName) || project.coverType === 'video';
 
   return (
     <>
-      {/* En-tête avec client et production (affiché si showHeader est true) */}
+      {/* 
+        EN-TÊTE DU PROJET
+        Affiche les informations du projet (client, production, date, équipe) si showHeader est true.
+        Utilisé uniquement sur les pages de projets individuels, pas sur les pages de listing.
+      */}
       {showHeader && (
         <div className="mb-12">
-          {/* Nom du client - cliquable si clientUrl existe */}
+          {/* Nom du client - en gras, cliquable si clientUrl existe */}
           {project.client && (
             <h1 className="text-lg font-semibold uppercase">
               {project.clientUrl ? (
@@ -67,15 +65,22 @@ export default function ProjectGallery({
               )}
             </h1>
           )}
-          {/* Nom de la production - format actuel (chaîne simple) */}
+
+          {/* Nom de la production - peut être une chaîne simple ou un tableau de personnes */}
           {project.production && (
             <h2 className="text-lg font-light">
               Prod : {renderProduction(project.production, project.productionUrl, true)}
             </h2>
           )}
-          {/* Date du projet */}
+
+          {/* Date du projet - format MM/YY (ex: '11/24' pour novembre 2024) */}
           {project.date && <p className="mb-4 text-lg font-light">Date : {project.date}</p>}
-          {/* Production Team - plusieurs personnes de la production, affichées sur une ligne avec virgules */}
+
+          {/* 
+            ÉQUIPE DE PRODUCTION
+            Liste des personnes de la production (régisseur, producteur, etc.)
+            Format : tableau d'objets [{ name: 'Nom', url: 'https://...' }]
+          */}
           {project.productionTeam && project.productionTeam.length > 0 && (
             <p className="mb-4 max-w-xl text-lg font-light">
               Production Team :{' '}
@@ -93,14 +98,20 @@ export default function ProjectGallery({
               ))}
             </p>
           )}
-          {/* Informations additionnelles (crew) - photographe, réalisateur, set designer, etc. */}
+
+          {/* 
+            ÉQUIPE TECHNIQUE (CREW)
+            Liste des membres de l'équipe technique : photographe, réalisateur, DOP, styliste, etc.
+            Format : tableau d'objets [{ role: 'Rôle', name: 'Nom' ou [{ name: 'Nom', url: '...' }], url: '...' }]
+            Le champ 'name' peut être une chaîne simple ou un tableau (pour plusieurs personnes au même poste)
+          */}
           {project.crew && project.crew.length > 0 && (
             <div className="mb-4 max-w-xl space-y-1">
               {project.crew.map((member, index) => (
                 <p key={index} className="text-lg font-light">
                   {member.role} :{' '}
                   {Array.isArray(member.name) ? (
-                    // Si name est un tableau, affiche plusieurs personnes séparées par des virgules
+                    // Plusieurs personnes pour le même rôle (ex: plusieurs photographes)
                     <>
                       {member.name.map((person, personIndex) => (
                         <span key={personIndex}>
@@ -119,7 +130,7 @@ export default function ProjectGallery({
                       ))}
                     </>
                   ) : (
-                    // Format actuel : name est une chaîne simple
+                    // Une seule personne pour ce rôle
                     <>
                       {member.url ? (
                         <ExternalLink href={member.url} className="font-medium hover:line-through">
@@ -134,7 +145,8 @@ export default function ProjectGallery({
               ))}
             </div>
           )}
-          {/* Lien externe (YouTube, etc.) */}
+
+          {/* Lien externe vers une vidéo YouTube ou autre plateforme */}
           {project.externalUrl && (
             <div className="mb-4">
               <ExternalLink
@@ -148,19 +160,22 @@ export default function ProjectGallery({
         </div>
       )}
 
-      {/* Grille contenant toutes les images du projet */}
+      {/* 
+        GRILLE DES MÉDIAS
+        Affiche l'image de couverture en premier, puis toutes les autres images/vidéos.
+        La grille est responsive : 1 colonne sur mobile, 2 sur tablette, 3 sur desktop.
+        Format des images : aspect ratio 3/4 sur mobile, 4/5 sur desktop.
+      */}
       <div className={`grid ${gridCols} gap-8 md:gap-4`}>
-        {/* Image de couverture (affichée en premier) */}
+        {/* Image de couverture - affichée en premier dans la grille */}
         {coverPath && (
           <div className="relative aspect-[3/4] w-full select-none overflow-hidden md:aspect-[4/5]">
             {isCoverVideo ? (
-              // Si c'est une vidéo, utilise le composant VideoWithSound
               <VideoWithSound
                 src={coverPath}
                 className="absolute inset-0 h-full w-full select-none object-cover"
               />
             ) : (
-              // Si c'est une image, utilise le composant Image de Next.js
               <Image
                 src={coverPath}
                 alt={project.title}
@@ -172,12 +187,10 @@ export default function ProjectGallery({
           </div>
         )}
 
-        {/* Boucle sur toutes les autres images du projet (sauf la couverture) */}
+        {/* Toutes les autres images/vidéos du projet (la couverture est exclue pour éviter les doublons) */}
         {otherImages.map((imageFile, index) => {
-          // Construit le chemin complet de chaque image
           const imagePath = `${basePath}/${imageFile}`;
-          // Vérifie si le fichier est une vidéo en regardant l'extension
-          const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(imageFile);
+          const isVideo = isVideoFile(imageFile);
 
           return (
             <div
@@ -185,13 +198,11 @@ export default function ProjectGallery({
               className="relative aspect-[3/4] w-full select-none overflow-hidden md:aspect-[4/5]"
             >
               {isVideo ? (
-                // Affiche une vidéo si l'extension correspond
                 <VideoWithSound
                   src={imagePath}
                   className="absolute inset-0 h-full w-full select-none object-cover"
                 />
               ) : (
-                // Affiche une image sinon
                 <Image
                   src={imagePath}
                   alt={`${project.title} - Photo ${index + 1}`}

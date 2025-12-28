@@ -7,14 +7,22 @@ import { isVideoFile } from '../utils/imageUtils';
 
 /**
  * Composant pour afficher une carte de projet
- * Utilisé sur la page d'accueil et les pages de listing (Monoprix, Echos)
- *
+ * 
+ * Utilisé sur les pages de listing (Monoprix, Echos, Kitsuné) pour afficher chaque sous-projet.
+ * Affiche l'image de couverture avec optionnellement la description et la date en dessous.
+ * 
+ * COMPORTEMENT :
+ * - Si hasMultipleImages est true : l'image est cliquable et mène à la page du projet
+ * - Si hasMultipleImages est false : l'image n'est pas cliquable (projet avec une seule image)
+ * - Si noEffects est true : pas d'effet grayscale (utilisé sur les pages de listing)
+ * - Si showDescription est true : affiche la description et la date au-dessus de l'image
+ * 
  * @param {Object} project - Les données du projet
- * @param {string} coverPath - Chemin vers l'image de couverture
- * @param {string} projectHref - Lien vers la page du projet
- * @param {boolean} hasMultipleImages - Le projet a plusieurs images (donc cliquable)
- * @param {boolean} noEffects - Désactive les effets de survol (grayscale)
- * @param {boolean} showDescription - Affiche la description du projet
+ * @param {string} coverPath - Chemin complet vers l'image de couverture
+ * @param {string} projectHref - Lien vers la page du projet (ex: '/projects/monoprix/birds')
+ * @param {boolean} hasMultipleImages - True si le projet a plusieurs images (rend l'image cliquable)
+ * @param {boolean} noEffects - True pour désactiver l'effet grayscale (défaut: false)
+ * @param {boolean} showDescription - True pour afficher description et date (défaut: false)
  */
 export default function ProjectCard({
   project,
@@ -24,13 +32,18 @@ export default function ProjectCard({
   noEffects = false,
   showDescription = false,
 }) {
-  // Classes CSS pour l'effet grayscale au survol
-  // Si noEffects est true, pas d'effet. Sinon, grayscale par défaut qui disparaît au survol
+  /**
+   * EFFET GRAYSCALE
+   * 
+   * Par défaut, les images sont en grayscale et passent en couleur au survol.
+   * Si noEffects est true (pages de listing), pas d'effet grayscale.
+   * Si hasMultipleImages est true, utilise group-hover pour déclencher l'effet au survol du groupe.
+   */
   const grayscaleClasses = noEffects
     ? ''
     : `grayscale transition-all duration-300 ${hasMultipleImages ? 'group-hover:grayscale-0' : 'hover:grayscale-0'}`;
 
-  // Détermine si c'est une vidéo en regardant l'extension ou coverType (rétrocompatibilité)
+  // Détection vidéo : vérifie l'extension du fichier ou le champ coverType (rétrocompatibilité)
   const isVideo = project.coverType === 'video' || isVideoFile(coverPath);
 
   // Contenu de l'image (vidéo ou image statique)
@@ -41,13 +54,11 @@ export default function ProjectCard({
       }`}
     >
       {isVideo ? (
-        // Affiche une vidéo avec son
         <VideoWithSound
           src={coverPath}
           className={`absolute inset-0 h-full w-full select-none object-cover ${grayscaleClasses}`}
         />
       ) : (
-        // Affiche une image
         <Image
           src={coverPath}
           alt={project.title}
@@ -59,28 +70,31 @@ export default function ProjectCard({
     </div>
   );
 
-  // Classes CSS du conteneur selon si le projet a plusieurs images ou non
-  const containerClasses = !hasMultipleImages
-    ? 'group flex h-full flex-col'
-    : 'flex h-full flex-col';
-
   return (
-    <div className={containerClasses}>
-      {/* Description du projet (affichée si showDescription est true) */}
+    <div className="flex h-full flex-col">
+      {/* 
+        DESCRIPTION ET DATE
+        Affichées uniquement si showDescription est true (pages de listing).
+        La description est en gras, la date en fine, toutes deux en majuscules.
+      */}
       {showDescription && project.description && (
         <div className="font-semibold uppercase">{project.description}</div>
       )}
-      {/* Date du projet (affichée en dessous de la description) */}
-      {showDescription && project.date && <div className="mb-2 font-thin">{project.date}</div>}
-      {/* Contenu de l'image - cliquable uniquement si le projet a plusieurs images */}
+      {showDescription && project.date && (
+        <div className="mb-2 font-thin">{project.date}</div>
+      )}
+      
+      {/* 
+        IMAGE DE COUVERTURE
+        Cliquable uniquement si le projet a plusieurs images (hasMultipleImages = true).
+        Si une seule image, l'image n'est pas cliquable (projet terminé ou en cours).
+      */}
       <div className="mt-auto">
         {hasMultipleImages ? (
-          // Si plusieurs images, l'image est cliquable et mène à la page du projet
           <Link href={projectHref} className="group block">
             {imageContent}
           </Link>
         ) : (
-          // Si une seule image, l'image n'est pas cliquable
           imageContent
         )}
       </div>

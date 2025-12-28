@@ -25,8 +25,10 @@ export const metadata = {
 };
 
 /**
- * Contenu du texte "Something you'll want on every production."
- * Affiché en haut à droite sur la page d'accueil
+ * Texte principal de la page d'accueil
+ * 
+ * Affiché en haut à droite avec un style typographique mixte (gras/fin).
+ * Utilise des sauts de ligne et des indentations pour créer un effet visuel.
  */
 const TEXT_CONTENT = (
   <>
@@ -45,11 +47,24 @@ const TEXT_CONTENT = (
 
 /**
  * Page d'accueil du site
- * Affiche un texte en haut à droite et un défilement horizontal des projets en bas
+ * 
+ * AFFICHAGE :
+ * - Desktop : Texte "Something..." au milieu à droite + défilement horizontal des projets en bas
+ * - Mobile : Texte "Something..." en haut + liste verticale des projets
+ * 
+ * FONCTIONNALITÉS :
+ * - Les projets sont réorganisés selon un ordre personnalisé (customOrder)
+ * - Sur desktop, les informations (client/production/date) apparaissent au survol
+ * - Sur mobile, les informations sont toujours visibles
+ * - Les images sont en grayscale par défaut sur desktop, en couleur au survol
  */
 export default function Home() {
-  // Ordre personnalisé des projets sur la page d'accueil
-  // Vous pouvez modifier cette liste pour changer l'ordre d'affichage
+  /**
+   * ORDRE PERSONNALISÉ DES PROJETS
+   * 
+   * Modifiez cette liste pour changer l'ordre d'affichage des projets sur la page d'accueil.
+   * Les slugs doivent correspondre exactement aux slugs dans data/projects.js
+   */
   const customOrder = [
     'aigle',
     'zegna',
@@ -67,12 +82,21 @@ export default function Home() {
     'vivier',
   ];
 
-  // Réorganise les projets selon l'ordre personnalisé défini ci-dessus
+  /**
+   * Réorganise les projets selon l'ordre personnalisé
+   * Filtre les projets non trouvés (au cas où un slug n'existe plus dans les données)
+   */
   const orderedProjects = customOrder
     .map((slug) => projects.find((p) => p.slug === slug))
-    .filter(Boolean); // Retire les projets non trouvés
+    .filter(Boolean);
 
-  // Variations de hauteur maximale pour créer un effet visuel avec des images de tailles différentes
+  /**
+   * VARIATIONS DE HAUTEUR MAXIMALE
+   * 
+   * Crée un effet visuel dynamique en variant les hauteurs des images.
+   * Chaque projet utilise une hauteur différente selon son index (modulo pour boucler).
+   * Ajustez ces valeurs pour modifier l'aspect visuel du défilement horizontal.
+   */
   const maxHeights = [
     'max-h-[350px]',
     'max-h-[450px]',
@@ -92,45 +116,51 @@ export default function Home() {
 
   return (
     <>
-      {/* Version Mobile - Affichage vertical */}
+      {/* 
+        VERSION MOBILE
+        Affichage vertical : texte en haut, projets en dessous, un par un.
+        Les informations (client/production/date) sont toujours visibles.
+      */}
       <div className="min-h-screen md:hidden">
-        {/* Texte "Something..." aligné à droite, en dessous de la navbar */}
         <div className="flex justify-end px-4 pb-10 pt-32">
           <p className="text-3xl uppercase leading-none tracking-tighter">{TEXT_CONTENT}</p>
         </div>
-
-        {/* Liste des projets en version mobile (affichage vertical) */}
         <TestPageMobile projects={orderedProjects} />
       </div>
 
-      {/* Version Desktop - Affichage horizontal */}
+      {/* 
+        VERSION DESKTOP
+        Affichage horizontal : texte au milieu à droite, défilement horizontal des projets en bas.
+        Les informations (client/production/date) apparaissent au survol de chaque image.
+      */}
       <main className="relative hidden h-screen flex-col md:flex">
-        {/* Texte "Something..." au milieu de l'écran, aligné à droite */}
+        {/* Texte "Something..." positionné au milieu de l'écran, aligné à droite */}
         <div className="absolute right-4 top-1/4 -translate-y-1/2 transform md:right-48">
           <p className="text-4xl uppercase leading-none tracking-tighter">{TEXT_CONTENT}</p>
         </div>
 
-        {/* Section de défilement horizontal en bas de l'écran */}
+        {/* 
+          DÉFILEMENT HORIZONTAL DES PROJETS
+          Les projets sont affichés en ligne horizontale, défilable avec la molette de la souris.
+          Chaque image a une hauteur maximale variable pour créer un effet visuel dynamique.
+        */}
         <section className="mt-auto pb-4">
           <div className="custom-scrollbar group flex items-end gap-4 overflow-x-auto px-6">
             {orderedProjects.map((project, index) => {
-              // Chemin vers l'image de couverture du projet
               const coverPath = getProjectImagePath(project);
-              // Lien vers la page du projet
               const projectHref = getProjectHref(project);
-              // Hauteur maximale variable pour créer un effet visuel
               const maxHeightClass = maxHeights[index % maxHeights.length];
+              const isVideo = project.coverType === 'video' || isVideoFile(coverPath);
 
-              // Toujours utiliser le lien interne vers la page du projet
-              const linkHref = projectHref;
-              // Classes CSS communes pour toutes les images
+              /**
+               * EFFET GRAYSCALE
+               * Les images sont en grayscale par défaut et passent en couleur au survol.
+               * Utilise group-hover/image pour que l'effet se déclenche au survol de l'image spécifique.
+               */
               const commonImageClasses =
                 'h-auto w-auto max-w-xs select-none object-contain object-bottom grayscale transition-all duration-300 group-hover/image:grayscale-0';
 
-              // Détermine si c'est une vidéo en regardant l'extension ou coverType (rétrocompatibilité)
-              const isVideo = project.coverType === 'video' || isVideoFile(coverPath);
-
-              // Contenu de l'image (vidéo ou image)
+              // Contenu de l'image (vidéo ou image statique)
               const imageContent = isVideo ? (
                 <video
                   src={coverPath}
@@ -153,18 +183,21 @@ export default function Home() {
                   key={project.slug}
                   className="group/image flex flex-shrink-0 flex-col opacity-100 transition-opacity duration-300 hover:!opacity-100 group-hover:opacity-60"
                 >
-                  {/* Overlay avec client/production et date au survol */}
+                  {/* 
+                    OVERLAY D'INFORMATIONS
+                    Apparaît au survol de l'image (opacity-0 → opacity-100).
+                    Affiche client/production à gauche et date à droite.
+                  */}
                   {(project.client || project.production || project.date) && (
                     <div className="mb-2 flex items-end justify-between opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
                       <ProjectInfoOverlay project={project} />
-                      {/* Date du projet - à droite */}
                       {project.date && (
                         <div className="mr-1 whitespace-nowrap font-thin">{project.date}</div>
                       )}
                     </div>
                   )}
-                  {/* Lien cliquable vers le projet */}
-                  <Link href={linkHref} className="flex items-end">
+                  {/* Lien cliquable - mène toujours vers la page interne du projet */}
+                  <Link href={projectHref} className="flex items-end">
                     {imageContent}
                   </Link>
                 </div>
