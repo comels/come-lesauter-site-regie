@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -85,6 +86,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen bg-stone-100 font-sans text-gray-900">
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
