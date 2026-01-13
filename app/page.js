@@ -26,7 +26,7 @@ export const metadata = {
 
 /**
  * Texte principal de la page d'accueil
- * 
+ *
  * Affiché en haut à droite avec un style typographique mixte (gras/fin).
  * Utilise des sauts de ligne et des indentations pour créer un effet visuel.
  */
@@ -47,11 +47,11 @@ const TEXT_CONTENT = (
 
 /**
  * Page d'accueil du site
- * 
+ *
  * AFFICHAGE :
  * - Desktop : Texte "Something..." au milieu à droite + défilement horizontal des projets en bas
  * - Mobile : Texte "Something..." en haut + liste verticale des projets
- * 
+ *
  * FONCTIONNALITÉS :
  * - Les projets sont réorganisés selon un ordre personnalisé (customOrder)
  * - Sur desktop, les informations (client/production/date) apparaissent au survol
@@ -61,7 +61,7 @@ const TEXT_CONTENT = (
 export default function Home() {
   /**
    * ORDRE PERSONNALISÉ DES PROJETS
-   * 
+   *
    * Modifiez cette liste pour changer l'ordre d'affichage des projets sur la page d'accueil.
    * Les slugs doivent correspondre exactement aux slugs dans data/projects.js
    */
@@ -92,7 +92,7 @@ export default function Home() {
 
   /**
    * VARIATIONS DE HAUTEUR MAXIMALE
-   * 
+   *
    * Crée un effet visuel dynamique en variant les hauteurs des images.
    * Chaque projet utilise une hauteur différente selon son index (modulo pour boucler).
    * Ajustez ces valeurs pour modifier l'aspect visuel du défilement horizontal.
@@ -181,7 +181,7 @@ export default function Home() {
               return (
                 <div
                   key={project.slug}
-                  className="group/image flex flex-shrink-0 flex-col opacity-100 transition-opacity duration-300 hover:!opacity-100 group-hover:opacity-60"
+                  className="group/image flex flex-shrink-0 flex-col opacity-100 transition-opacity duration-500 hover:!opacity-100 group-hover:opacity-60"
                 >
                   {/* 
                     OVERLAY D'INFORMATIONS
@@ -189,7 +189,7 @@ export default function Home() {
                     Affiche client/production à gauche et date à droite.
                   */}
                   {(project.client || project.production || project.date) && (
-                    <div className="mb-2 flex items-end justify-between opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                    <div className="mb-2 flex items-end justify-between opacity-0 transition-opacity duration-500 ease-in-out group-hover/image:opacity-100">
                       <ProjectInfoOverlay project={project} />
                       {project.date && (
                         <div className="mr-1 whitespace-nowrap font-thin">{project.date}</div>

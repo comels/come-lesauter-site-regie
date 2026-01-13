@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ExternalLink from '../../components/ExternalLink';
+import Typewriter from '../../components/Typewriter';
 
 export const metadata = {
   title: 'À propos - Côme Le Sauter | Régisseur Production',
@@ -30,8 +31,12 @@ export default function About() {
             className="relative z-10 text-justify text-3xl font-semibold uppercase sm:text-5xl lg:text-[57px]"
             style={{ lineHeight: '1.3' }}
           >
-            I’m a production manager working on commercial shoots, bringing expertise in location
-            scouting, logistics, catering, and efficient on-set operations.
+            <Typewriter
+              text="I’m a production manager working on commercial shoots, bringing expertise in location
+            scouting, logistics, catering, and efficient on-set operations."
+              speed={50}
+              delay={1000}
+            />
           </p>
         </div>
 
