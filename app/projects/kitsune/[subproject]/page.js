@@ -19,7 +19,9 @@ export async function generateMetadata({ params }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://comelesauter.vercel.app';
   const projectUrl = `${baseUrl}/projects/kitsune/${project.slug}`;
   const coverFileName = getCoverFileName(project);
-  const imageUrl = coverFileName ? `${baseUrl}/projects/kitsune/${project.slug}/${coverFileName}` : '';
+  const imageUrl = coverFileName
+    ? `${baseUrl}/projects/kitsune/${project.slug}/${coverFileName}`
+    : '';
 
   return {
     title: `${project.client || 'Projet'} | Côme Le Sauter`,
@@ -62,8 +64,11 @@ export default function KitsuneSubprojectPage({ params }) {
 
   return (
     <main className="min-h-screen px-6 py-6 pt-28">
-      <ProjectGallery project={project} basePath={`/projects/kitsune/${project.slug}`} showHeader={true} />
+      <ProjectGallery
+        project={project}
+        basePath={`/projects/kitsune/${project.slug}`}
+        showHeader={true}
+      />
     </main>
   );
 }
-

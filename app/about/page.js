@@ -1,6 +1,11 @@
 import Image from 'next/image';
-import ExternalLink from '../../components/ExternalLink';
 import Typewriter from '../../components/Typewriter';
+
+const TEAM = [
+  { firstName: 'Côme', lastName: 'Le Sauter', phone: '06 66 67 96 88' },
+  { firstName: 'Basile', lastName: 'Le Sauter', phone: '06 68 03 95 91' },
+  { firstName: 'Charles', lastName: 'Créhange', phone: '06 84 00 78 19' },
+];
 
 export const metadata = {
   title: 'À propos - Côme Le Sauter | Régisseur Production',
@@ -32,17 +37,16 @@ export default function About() {
             style={{ lineHeight: '1.3' }}
           >
             <Typewriter
-              text="I’m a production manager working on commercial shoots, bringing expertise in location
-            scouting, logistics, catering, and efficient on-set operations."
+              text="We’re a production team working on commercial shoots, bringing expertise in location scouting, logistics, catering, and efficient on-set operations."
               speed={50}
               delay={1000}
             />
           </p>
         </div>
 
-        <div className="absolute bottom-0 right-0 z-0 mx-auto mb-0 aspect-[3/4] w-96 opacity-70 sm:right-64">
+        <div className="absolute bottom-0 right-0 z-0 mx-auto mb-0 aspect-[3/4] w-96 sm:right-64">
           <Image
-            src="/about-4.jpg"
+            src="/about-5.jpg"
             alt="Côme"
             fill
             className="object-cover"
@@ -50,26 +54,22 @@ export default function About() {
           />
         </div>
 
-        <div className="absolute bottom-0 z-20 px-6 pb-4">
-          <div className="text-base font-semibold">
-            <p>
-              <ExternalLink
-                href="https://www.instagram.com/comelesauter/"
-                className="hover:line-through"
-              >
-                INSTAGRAM
-              </ExternalLink>
-            </p>
-            <p>
-              <a href="tel:0666679688" className="hover:line-through">
-                06 66 67 96 88
-              </a>
-            </p>
-            <p>
-              <a href="mailto:comelesauter@gmail.com" className="hover:line-through">
-                COMELESAUTER@GMAIL.COM
-              </a>
-            </p>
+        <div className="absolute bottom-0 left-0 z-20 px-6 py-4">
+          <div className="flex flex-col gap-4">
+            {TEAM.map((person) => (
+              <div key={`${person.firstName}-${person.lastName}`}>
+                <p className="text-base uppercase leading-none">
+                  <span className="font-thin">{person.firstName} </span>
+                  <span className="font-semibold">{person.lastName}</span>
+                </p>
+                <a
+                  href={`tel:${person.phone.replace(/\s/g, '')}`}
+                  className="mt-1 block text-base font-thin leading-none hover:line-through"
+                >
+                  {person.phone}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>

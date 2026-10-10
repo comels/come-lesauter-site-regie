@@ -12,8 +12,8 @@ export default function Navbar() {
       <div className="flex items-center gap-3 px-6 py-4">
         {/* Logo / Nom du site - cliquable, mène à la page d'accueil */}
         <Link href="/" className="text-2xl uppercase transition-colors hover:line-through">
-          <span className="font-thin tracking-tighter">Côme </span>
-          <span className="font-bold tracking-tighter">Le Sauter</span>
+          <span className="font-thin tracking-tighter">wrap </span>
+          <span className="font-bold tracking-tighter">Prod</span>
         </Link>
 
         {/* Lien de navigation à droite */}

@@ -7,11 +7,11 @@ import { renderProduction } from '../utils/productionUtils';
 
 /**
  * Composant pour afficher les projets en version mobile
- * 
+ *
  * Affiche les projets verticalement, un par un, avec les informations (client, production, date)
  * toujours visibles au-dessus de chaque image. Contrairement à la version desktop, les images
  * sont en couleur (pas d'effet grayscale) et toutes les informations sont visibles directement.
- * 
+ *
  * @param {Array} projects - Liste des projets à afficher (déjà ordonnée selon customOrder)
  */
 export default function TestPageMobile({ projects }) {
@@ -73,7 +73,7 @@ export default function TestPageMobile({ projects }) {
                 </div>
                 {/* Date du projet - format MM/YY, alignée à droite */}
                 {project.date && (
-                  <div className="mr-1 whitespace-nowrap font-thin text-lg">{project.date}</div>
+                  <div className="mr-1 whitespace-nowrap text-lg font-thin">{project.date}</div>
                 )}
               </div>
             )}
