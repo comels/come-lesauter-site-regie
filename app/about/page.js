@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Typewriter from '../../components/Typewriter';
+import LockMobileScroll from '../../components/LockMobileScroll';
 
 const TEAM = [
   { firstName: 'Côme', lastName: 'Le Sauter', phone: '06 66 67 96 88' },
@@ -30,6 +31,7 @@ export const metadata = {
 export default function About() {
   return (
     <main className="relative h-dvh overflow-hidden px-0 sm:h-auto sm:min-h-screen sm:overflow-visible lg:h-screen lg:overflow-hidden">
+      <LockMobileScroll />
       <div className="relative h-full w-full sm:min-h-screen lg:h-full">
         <div className="w-full px-6 pt-20 sm:pb-16">
           <p
@@ -44,7 +46,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="absolute left-0 right-0 top-1/2 z-0 aspect-[3/4] w-full sm:bottom-0 sm:left-auto sm:right-64 sm:top-auto sm:w-96">
+        <div className="fixed bottom-0 left-0 right-0 top-1/2 z-0 sm:absolute sm:left-auto sm:right-64 sm:top-auto sm:aspect-[3/4] sm:w-96">
           <Image
             src="/about-5.jpg"
             alt="Côme"
