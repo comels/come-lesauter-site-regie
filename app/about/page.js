@@ -44,7 +44,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-0 aspect-[3/4] w-full sm:left-auto sm:right-64 sm:w-96">
+        <div className="absolute left-0 right-0 top-1/2 z-0 aspect-[3/4] w-full sm:bottom-0 sm:left-auto sm:right-64 sm:top-auto sm:w-96">
           <Image
             src="/about-5.jpg"
             alt="Côme"
