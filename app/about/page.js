@@ -8,13 +8,13 @@ const TEAM = [
 ];
 
 export const metadata = {
-  title: 'À propos - Côme Le Sauter | Régisseur Production',
+  title: 'À propos - Fourche | Production',
   description:
-    'Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
+    'Fourche Prod accompagne les productions audiovisuelles et commerciales avec une expertise en repérage, logistique, restauration et gestion opérationnelle des tournages.',
   openGraph: {
     title: 'À propos - Côme Le Sauter',
     description:
-      'Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Expertise en repérage de lieux, logistique, restauration et gestion efficace des tournages.',
+      'Fourche Prod accompagne les productions audiovisuelles et commerciales avec une expertise en repérage, logistique, restauration et gestion opérationnelle des tournages.',
     url: 'https://comelesauter.vercel.app/about',
     images: [
       {

@@ -5,20 +5,20 @@ import TestPageMobile from '../components/TestPageMobile';
 import ProjectInfoOverlay from '../components/ProjectInfoOverlay';
 
 export const metadata = {
-  title: 'Côme Le Sauter - Régisseur Production | Portfolio',
+  title: 'Fourche Production | Portfolio',
   description:
-    'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Découvrez mes réalisations pour des marques prestigieuses.',
+    'Découvrez le portfolio de Fourche et nos réalisations en régie pour des productions audiovisuelles et commerciales, auprès de marques prestigieuses.',
   openGraph: {
-    title: 'Côme Le Sauter - Régisseur Production',
+    title: 'Fourche - Production',
     description:
-      'Portfolio de Côme Le Sauter, régisseur pour productions audiovisuelles et commerciales. Découvrez mes réalisations pour des marques prestigieuses.',
+      'Découvrez le portfolio de Fourche et nos réalisations en régie pour des productions audiovisuelles et commerciales, auprès de marques prestigieuses.',
     url: 'https://comelesauter.vercel.app',
     images: [
       {
         url: 'https://comelesauter.vercel.app/about-4.jpg',
         width: 1200,
         height: 630,
-        alt: 'Côme Le Sauter - Régisseur',
+        alt: 'Rectangle - Orange',
       },
     ],
   },
